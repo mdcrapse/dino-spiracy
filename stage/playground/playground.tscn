@@ -2,11 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://g7u312lkxeg3" path="res://stage/stage.tscn" id="1_op2fg"]
 [ext_resource type="Texture2D" uid="uid://d137yvhrq4a5w" path="res://stage/playground/middleground.png" id="2_fl6nd"]
+[ext_resource type="PackedScene" uid="uid://d127bfau072lk" path="res://player/player.tscn" id="3_fl6nd"]
 
 [node name="Playground" unique_id=1735913056 instance=ExtResource("1_op2fg")]
 
 [node name="Middleground" parent="." index="1" unique_id=1002627971]
 texture = ExtResource("2_fl6nd")
+
+[node name="Player" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="0" unique_id=1890555838 instance=ExtResource("3_fl6nd")]
+position = Vector2(69, -30)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="5" unique_id=1746823366]
 

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d127bfau072lk"]
+
+[ext_resource type="Script" uid="uid://dmjqvkyjkp8vt" path="res://player/player.gd" id="1_oul6g"]
+[ext_resource type="Texture2D" uid="uid://m56sqsknt4dk" path="res://player/default_character.png" id="2_rkbax"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkbax"]
+radius = 17.0
+height = 66.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1890555838]
+floor_max_angle = 1.134464
+script = ExtResource("1_oul6g")
+input_move_left = "syd_move_left"
+input_move_right = "syd_move_right"
+input_jump = "syd_jump"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=645274886]
+texture = ExtResource("2_rkbax")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1118535342]
+zoom = Vector2(3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1685544217]
+shape = SubResource("CapsuleShape2D_rkbax")
