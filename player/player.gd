@@ -1,9 +1,4 @@
 extends CharacterBody2D
-# Mario-like 2D controller for Godot 4
-# - Smooth acceleration / deceleration
-# - Variable jump (hold for higher jump)
-# - Coyote time and jump buffering
-# - Wall slide + wall jump (requires RayLeft and RayRight RayCast2D children)
 
 @export_category("Input")
 @export var input_move_left: String
