@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://c26oti47hlgyo"]
+
+[ext_resource type="FontFile" uid="uid://3lo4xep25d1r" path="res://font/Roboto/roboto.ttf" id="1_uf30w"]
+[ext_resource type="PackedScene" uid="uid://dy3g6jyu4gj1e" path="res://fight/player_fight_panel.tscn" id="1_wldmm"]
+[ext_resource type="Texture2D" uid="uid://1rhplhwd8a1o" path="res://character/weirdo_speak.png" id="3_yw3gg"]
+
+[sub_resource type="Theme" id="Theme_yw3gg"]
+default_font = ExtResource("1_uf30w")
+default_font_size = 32
+
+[node name="Fight" type="Control" unique_id=829026029]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_yw3gg")
+
+[node name="SafeMargin" type="MarginContainer" parent="." unique_id=889033247]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" type="Control" parent="SafeMargin" unique_id=1715687725]
+layout_mode = 2
+
+[node name="RonFightPanel" parent="SafeMargin/Control" unique_id=699665179 instance=ExtResource("1_wldmm")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -316.0
+offset_right = 178.0
+offset_bottom = 0.0
+grow_vertical = 0
+
+[node name="TextureRect" parent="SafeMargin/Control/RonFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(699665179, 190746529) index="1" unique_id=1401735072]
+flip_h = true
+
+[node name="SydFightPanel" parent="SafeMargin/Control" unique_id=1457763849 instance=ExtResource("1_wldmm")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -178.0
+offset_top = -316.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="LabelName" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="0" unique_id=1480109219]
+text = "Syd"
+
+[node name="TextureRect" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="1" unique_id=1401735072]
+texture = ExtResource("3_yw3gg")
+
+[editable path="SafeMargin/Control/RonFightPanel"]
+[editable path="SafeMargin/Control/SydFightPanel"]
