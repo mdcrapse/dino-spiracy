@@ -2,8 +2,10 @@
 
 [ext_resource type="FontFile" uid="uid://3lo4xep25d1r" path="res://font/Roboto/roboto.ttf" id="1_uf30w"]
 [ext_resource type="PackedScene" uid="uid://dy3g6jyu4gj1e" path="res://fight/player_fight_panel.tscn" id="1_wldmm"]
+[ext_resource type="Script" uid="uid://dfqe8iesd6hcn" path="res://fight/fight.gd" id="2_b28lu"]
 [ext_resource type="Texture2D" uid="uid://1rhplhwd8a1o" path="res://character/weirdo_speak.png" id="3_yw3gg"]
 [ext_resource type="Texture2D" uid="uid://brmdgwurjs2v3" path="res://character/evil_fish.png" id="4_1ybsv"]
+[ext_resource type="PackedScene" uid="uid://cf3kp0quoxsfk" path="res://fight/fight_log.tscn" id="4_akaej"]
 
 [sub_resource type="Theme" id="Theme_yw3gg"]
 default_font = ExtResource("1_uf30w")
@@ -24,6 +26,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_yw3gg")
+script = ExtResource("2_b28lu")
 
 [node name="SafeMargin" type="MarginContainer" parent="." unique_id=889033247]
 layout_mode = 1
@@ -61,100 +64,82 @@ texture = ExtResource("4_1ybsv")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SafeMargin/Control" unique_id=920788122]
+[node name="FightLog" parent="SafeMargin/Control" unique_id=1506502631 instance=ExtResource("4_akaej")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(384, 384)
 layout_mode = 1
-anchors_preset = 12
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 394.0
+offset_bottom = 394.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="SydFightPanel" parent="SafeMargin/Control" unique_id=1457763849 instance=ExtResource("1_wldmm")]
+layout_mode = 1
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -450.0
-grow_horizontal = 2
+offset_right = 282.0
+offset_bottom = 0.0
 grow_vertical = 0
-theme_override_constants/separation = 16
 
-[node name="SydFightPanel" parent="SafeMargin/Control/HBoxContainer" unique_id=1457763849 instance=ExtResource("1_wldmm")]
-layout_mode = 2
-
-[node name="LabelName" parent="SafeMargin/Control/HBoxContainer/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="0" unique_id=1480109219]
+[node name="LabelName" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="0" unique_id=1480109219]
 text = "Syd"
 
-[node name="TextureRect" parent="SafeMargin/Control/HBoxContainer/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="1" unique_id=1401735072]
+[node name="TextureRect" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="1" unique_id=1401735072]
 texture = ExtResource("3_yw3gg")
 flip_h = true
 
-[node name="FightChoice" parent="SafeMargin/Control/HBoxContainer/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="2" unique_id=638742582]
+[node name="FightChoice" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="2" unique_id=638742582]
 character = "syd"
 
-[node name="ChoiceUp" parent="SafeMargin/Control/HBoxContainer/SydFightPanel/MarginContainer/VBoxContainer/FightChoice" index="0" unique_id=1344888400]
+[node name="ChoiceUp" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer/FightChoice" index="0" unique_id=1344888400]
 text = "Headbutt"
 
-[node name="ChoiceLeft" parent="SafeMargin/Control/HBoxContainer/SydFightPanel/MarginContainer/VBoxContainer/FightChoice/HBoxContainer" parent_id_path=PackedInt32Array(1457763849, 638742582, 1105597768) index="0" unique_id=261060877]
+[node name="ChoiceLeft" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer/FightChoice/HBoxContainer" parent_id_path=PackedInt32Array(1457763849, 638742582, 1105597768) index="0" unique_id=261060877]
 text = "Punch"
 
-[node name="ChoiceRight" parent="SafeMargin/Control/HBoxContainer/SydFightPanel/MarginContainer/VBoxContainer/FightChoice/HBoxContainer" parent_id_path=PackedInt32Array(1457763849, 638742582, 1105597768) index="2" unique_id=44214737]
+[node name="ChoiceRight" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer/FightChoice/HBoxContainer" parent_id_path=PackedInt32Array(1457763849, 638742582, 1105597768) index="2" unique_id=44214737]
 text = "Chomp"
 
-[node name="ChoiceDown" parent="SafeMargin/Control/HBoxContainer/SydFightPanel/MarginContainer/VBoxContainer/FightChoice" index="2" unique_id=1623022244]
+[node name="ChoiceDown" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer/FightChoice" index="2" unique_id=1623022244]
 text = "Toss Ron"
 
-[node name="Control" type="Control" parent="SafeMargin/Control/HBoxContainer" unique_id=1074582705]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="PanelContainer" type="PanelContainer" parent="SafeMargin/Control/HBoxContainer/Control" unique_id=1230010238]
-custom_minimum_size = Vector2(0, 256)
+[node name="RonFightPanel" parent="SafeMargin/Control" unique_id=699665179 instance=ExtResource("1_wldmm")]
 layout_mode = 1
-anchors_preset = 12
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -256.0
-grow_horizontal = 2
+offset_left = -282.0
+offset_top = -450.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
 grow_vertical = 0
-size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="SafeMargin/Control/HBoxContainer/Control/PanelContainer" unique_id=353363533]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="Control" type="Control" parent="SafeMargin/Control/HBoxContainer/Control/PanelContainer/MarginContainer" unique_id=779538637]
-clip_contents = true
-layout_mode = 2
-
-[node name="Label" type="Label" parent="SafeMargin/Control/HBoxContainer/Control/PanelContainer/MarginContainer/Control" unique_id=543564123]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 284.0
-grow_horizontal = 2
-text = "- Evil Fish is hurt 8 HP
-- Syd Chomps Evil Fish
-- Evil Fish defense is lowered
-- Evil Fish is stunned
-- Ron Headlocks Evil Fish
-- Party is hurt 5 HP
-- Evil Fish Bites"
-autowrap_mode = 2
-
-[node name="RonFightPanel" parent="SafeMargin/Control/HBoxContainer" unique_id=699665179 instance=ExtResource("1_wldmm")]
-layout_mode = 2
-
-[node name="ChoiceUp" parent="SafeMargin/Control/HBoxContainer/RonFightPanel/MarginContainer/VBoxContainer/FightChoice" parent_id_path=PackedInt32Array(699665179, 638742582) index="0" unique_id=1344888400]
+[node name="ChoiceUp" parent="SafeMargin/Control/RonFightPanel/MarginContainer/VBoxContainer/FightChoice" parent_id_path=PackedInt32Array(699665179, 638742582) index="0" unique_id=1344888400]
 text = "Scratch"
 
-[node name="ChoiceLeft" parent="SafeMargin/Control/HBoxContainer/RonFightPanel/MarginContainer/VBoxContainer/FightChoice/HBoxContainer" parent_id_path=PackedInt32Array(699665179, 638742582, 1105597768) index="0" unique_id=261060877]
+[node name="ChoiceLeft" parent="SafeMargin/Control/RonFightPanel/MarginContainer/VBoxContainer/FightChoice/HBoxContainer" parent_id_path=PackedInt32Array(699665179, 638742582, 1105597768) index="0" unique_id=261060877]
 text = "Rest"
 
-[node name="ChoiceRight" parent="SafeMargin/Control/HBoxContainer/RonFightPanel/MarginContainer/VBoxContainer/FightChoice/HBoxContainer" parent_id_path=PackedInt32Array(699665179, 638742582, 1105597768) index="2" unique_id=44214737]
+[node name="ChoiceRight" parent="SafeMargin/Control/RonFightPanel/MarginContainer/VBoxContainer/FightChoice/HBoxContainer" parent_id_path=PackedInt32Array(699665179, 638742582, 1105597768) index="2" unique_id=44214737]
 text = "Berate"
 
-[node name="ChoiceDown" parent="SafeMargin/Control/HBoxContainer/RonFightPanel/MarginContainer/VBoxContainer/FightChoice" parent_id_path=PackedInt32Array(699665179, 638742582) index="2" unique_id=1623022244]
+[node name="ChoiceDown" parent="SafeMargin/Control/RonFightPanel/MarginContainer/VBoxContainer/FightChoice" parent_id_path=PackedInt32Array(699665179, 638742582) index="2" unique_id=1623022244]
 text = "Headlock"
 
-[editable path="SafeMargin/Control/HBoxContainer/SydFightPanel"]
-[editable path="SafeMargin/Control/HBoxContainer/SydFightPanel/MarginContainer/VBoxContainer/FightChoice"]
-[editable path="SafeMargin/Control/HBoxContainer/RonFightPanel"]
-[editable path="SafeMargin/Control/HBoxContainer/RonFightPanel/MarginContainer/VBoxContainer/FightChoice"]
+[connection signal="chose" from="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer/FightChoice" to="." method="_on_syd_fight_choice_chose"]
+[connection signal="chose" from="SafeMargin/Control/RonFightPanel/MarginContainer/VBoxContainer/FightChoice" to="." method="_on_ron_fight_choice_chose"]
+
+[editable path="SafeMargin/Control/SydFightPanel"]
+[editable path="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer/FightChoice"]
+[editable path="SafeMargin/Control/RonFightPanel"]
+[editable path="SafeMargin/Control/RonFightPanel/MarginContainer/VBoxContainer/FightChoice"]
