@@ -28,6 +28,10 @@ runtime/balloon_path="res://dialogue/balloon/balloon.tscn"
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
+[global_group]
+
+player=""
+
 [input]
 
 syd_move_left={

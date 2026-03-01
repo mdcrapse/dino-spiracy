@@ -9,10 +9,10 @@
 [node name="Middleground" parent="." index="1" unique_id=1002627971]
 texture = ExtResource("2_fl6nd")
 
-[node name="Syd" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="0" unique_id=1890555838 instance=ExtResource("3_fl6nd")]
+[node name="Syd" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="0" unique_id=1890555838 groups=["player"] instance=ExtResource("3_fl6nd")]
 position = Vector2(69, -30)
 
-[node name="Syd2" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="1" unique_id=137198123 instance=ExtResource("3_fl6nd")]
+[node name="Ron" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="1" unique_id=137198123 groups=["player"] instance=ExtResource("3_fl6nd")]
 position = Vector2(165, -34)
 character = "ron"
 
