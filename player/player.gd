@@ -1,9 +1,7 @@
 extends CharacterBody2D
 
 @export_category("Input")
-@export var input_move_left: String
-@export var input_move_right: String
-@export var input_jump: String
+@export var character: String = "syd"
 
 @export_category("Movement")
 @export_range(0.0, 2000.0, 1.0) var walk_speed: float = 180.0
@@ -41,6 +39,10 @@ var _wall_stick_timer: float = 0.0
 var _is_wall_sliding: bool = false
 
 var previous_pos := position
+
+@onready var input_move_left: String = character + "_move_left"
+@onready var input_move_right: String = character + "_move_right"
+@onready var input_jump: String = character + "_jump"
 
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
