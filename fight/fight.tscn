@@ -3,8 +3,8 @@
 [ext_resource type="FontFile" uid="uid://3lo4xep25d1r" path="res://font/Roboto/roboto.ttf" id="1_uf30w"]
 [ext_resource type="PackedScene" uid="uid://dy3g6jyu4gj1e" path="res://fight/player_fight_panel.tscn" id="1_wldmm"]
 [ext_resource type="Script" uid="uid://dfqe8iesd6hcn" path="res://fight/fight.gd" id="2_b28lu"]
+[ext_resource type="Texture2D" uid="uid://rm6nq8q5klqi" path="res://character/bar_ruffians.png" id="3_b28lu"]
 [ext_resource type="Texture2D" uid="uid://1rhplhwd8a1o" path="res://character/weirdo_speak.png" id="3_yw3gg"]
-[ext_resource type="Texture2D" uid="uid://brmdgwurjs2v3" path="res://character/evil_fish.png" id="4_1ybsv"]
 [ext_resource type="PackedScene" uid="uid://cf3kp0quoxsfk" path="res://fight/fight_log.tscn" id="4_akaej"]
 
 [sub_resource type="Theme" id="Theme_yw3gg"]
@@ -27,6 +27,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_yw3gg")
 script = ExtResource("2_b28lu")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1246247523]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="SafeMargin" type="MarginContainer" parent="." unique_id=889033247]
 layout_mode = 1
@@ -53,14 +61,14 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="SafeMargin/Control/VBoxContainer" unique_id=2015694887]
 layout_mode = 2
-text = "Evil Fish"
+text = "Bar Ruffians"
 label_settings = SubResource("LabelSettings_1ybsv")
 horizontal_alignment = 1
 
 [node name="Enemy" type="TextureRect" parent="SafeMargin/Control/VBoxContainer" unique_id=482056038]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("4_1ybsv")
+texture = ExtResource("3_b28lu")
 expand_mode = 1
 stretch_mode = 5
 
