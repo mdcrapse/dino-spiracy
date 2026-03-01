@@ -3,10 +3,18 @@
 [ext_resource type="FontFile" uid="uid://3lo4xep25d1r" path="res://font/Roboto/roboto.ttf" id="1_uf30w"]
 [ext_resource type="PackedScene" uid="uid://dy3g6jyu4gj1e" path="res://fight/player_fight_panel.tscn" id="1_wldmm"]
 [ext_resource type="Texture2D" uid="uid://1rhplhwd8a1o" path="res://character/weirdo_speak.png" id="3_yw3gg"]
+[ext_resource type="Texture2D" uid="uid://brmdgwurjs2v3" path="res://character/evil_fish.png" id="4_1ybsv"]
 
 [sub_resource type="Theme" id="Theme_yw3gg"]
 default_font = ExtResource("1_uf30w")
 default_font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ybsv"]
+font_size = 64
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0.53333336, 0.53333336, 0.53333336, 1)
+shadow_offset = Vector2(4, 4)
 
 [node name="Fight" type="Control" unique_id=829026029]
 layout_mode = 3
@@ -31,6 +39,27 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Control" type="Control" parent="SafeMargin" unique_id=1715687725]
 layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SafeMargin/Control" unique_id=1092550393]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SafeMargin/Control/VBoxContainer" unique_id=2015694887]
+layout_mode = 2
+text = "Evil Fish"
+label_settings = SubResource("LabelSettings_1ybsv")
+horizontal_alignment = 1
+
+[node name="Enemy" type="TextureRect" parent="SafeMargin/Control/VBoxContainer" unique_id=482056038]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_1ybsv")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="RonFightPanel" parent="SafeMargin/Control" unique_id=699665179 instance=ExtResource("1_wldmm")]
 layout_mode = 1
