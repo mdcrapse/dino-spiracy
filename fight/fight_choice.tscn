@@ -18,19 +18,19 @@ layout_mode = 2
 
 [node name="ChoiceLeft" type="Label" parent="HBoxContainer" unique_id=261060877]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(96, 0)
+custom_minimum_size = Vector2(112, 0)
 layout_mode = 2
 text = "Left"
 horizontal_alignment = 2
 
 [node name="ColorRect" type="ColorRect" parent="HBoxContainer" unique_id=1857655306]
-custom_minimum_size = Vector2(32, 32)
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 color = Color(0, 0, 0, 1)
 
 [node name="ChoiceRight" type="Label" parent="HBoxContainer" unique_id=44214737]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(96, 0)
+custom_minimum_size = Vector2(112, 0)
 layout_mode = 2
 text = "Right"
 
