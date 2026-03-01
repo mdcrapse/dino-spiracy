@@ -13,7 +13,7 @@ horizontal_alignment = 1
 layout_mode = 2
 
 [node name="ChoiceLeft" type="Label" parent="HBoxContainer" unique_id=261060877]
-custom_minimum_size = Vector2(64, 0)
+custom_minimum_size = Vector2(96, 0)
 layout_mode = 2
 text = "Left"
 horizontal_alignment = 2
@@ -24,7 +24,7 @@ layout_mode = 2
 color = Color(0, 0, 0, 1)
 
 [node name="ChoiceRight" type="Label" parent="HBoxContainer" unique_id=44214737]
-custom_minimum_size = Vector2(64, 0)
+custom_minimum_size = Vector2(96, 0)
 layout_mode = 2
 text = "Right"
 
