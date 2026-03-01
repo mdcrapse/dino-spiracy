@@ -24,9 +24,9 @@ text = "Left"
 horizontal_alignment = 2
 
 [node name="ColorRect" type="ColorRect" parent="HBoxContainer" unique_id=1857655306]
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
 
 [node name="ChoiceRight" type="Label" parent="HBoxContainer" unique_id=44214737]
 unique_name_in_owner = true
