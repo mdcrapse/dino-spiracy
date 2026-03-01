@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://dsr8byiy6n1n3"]
 
+[ext_resource type="Script" uid="uid://wpf2fibii8en" path="res://fight/fight_choice.gd" id="1_2c0n5"]
+
 [node name="FightChoice" type="VBoxContainer" unique_id=638742582]
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_2c0n5")
 
 [node name="ChoiceUp" type="Label" parent="." unique_id=1344888400]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Up"
 horizontal_alignment = 1
@@ -13,6 +17,7 @@ horizontal_alignment = 1
 layout_mode = 2
 
 [node name="ChoiceLeft" type="Label" parent="HBoxContainer" unique_id=261060877]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 0)
 layout_mode = 2
 text = "Left"
@@ -24,11 +29,13 @@ layout_mode = 2
 color = Color(0, 0, 0, 1)
 
 [node name="ChoiceRight" type="Label" parent="HBoxContainer" unique_id=44214737]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 0)
 layout_mode = 2
 text = "Right"
 
 [node name="ChoiceDown" type="Label" parent="." unique_id=1623022244]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Down"
 horizontal_alignment = 1

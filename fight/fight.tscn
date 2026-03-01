@@ -63,29 +63,26 @@ stretch_mode = 5
 
 [node name="RonFightPanel" parent="SafeMargin/Control" unique_id=699665179 instance=ExtResource("1_wldmm")]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -316.0
-offset_right = 178.0
-offset_bottom = 0.0
-grow_vertical = 0
-
-[node name="TextureRect" parent="SafeMargin/Control/RonFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(699665179, 190746529) index="1" unique_id=1401735072]
-flip_h = true
-
-[node name="SydFightPanel" parent="SafeMargin/Control" unique_id=1457763849 instance=ExtResource("1_wldmm")]
-layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -178.0
-offset_top = -316.0
+offset_left = -242.0
+offset_top = -410.0
 offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 0
+grow_vertical = 0
+
+[node name="SydFightPanel" parent="SafeMargin/Control" unique_id=1457763849 instance=ExtResource("1_wldmm")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -410.0
+offset_right = 242.0
+offset_bottom = 0.0
 grow_vertical = 0
 
 [node name="LabelName" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="0" unique_id=1480109219]
@@ -93,6 +90,10 @@ text = "Syd"
 
 [node name="TextureRect" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="1" unique_id=1401735072]
 texture = ExtResource("3_yw3gg")
+flip_h = true
+
+[node name="FightChoice" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="2" unique_id=638742582]
+character = "syd"
 
 [editable path="SafeMargin/Control/RonFightPanel"]
 [editable path="SafeMargin/Control/SydFightPanel"]
