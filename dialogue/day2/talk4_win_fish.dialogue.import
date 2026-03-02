@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dlxnf003m4n0q"
+path="res://.godot/imported/talk4_win_fish.dialogue-58fb1bf32209fcf13e64e9def9dc9272.tres"
+
+[deps]
+
+source_file="res://dialogue/day2/talk4_win_fish.dialogue"
+dest_files=["res://.godot/imported/talk4_win_fish.dialogue-58fb1bf32209fcf13e64e9def9dc9272.tres"]
+
+[params]
+
+defaults=true

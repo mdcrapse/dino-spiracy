@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://csntbjbor63h5"
+path="res://.godot/imported/talk3_fishing.dialogue-c390e299c94b08939db7a12fa780b572.tres"
+
+[deps]
+
+source_file="res://dialogue/day2/talk3_fishing.dialogue"
+dest_files=["res://.godot/imported/talk3_fishing.dialogue-c390e299c94b08939db7a12fa780b572.tres"]
+
+[params]
+
+defaults=true

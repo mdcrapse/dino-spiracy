@@ -28,6 +28,8 @@
 [ext_resource type="Texture2D" uid="uid://cvhtnpyo6gpep" path="res://character/gill_normal.png" id="24_umkw8"]
 [ext_resource type="Texture2D" uid="uid://kx61mdrslten" path="res://character/gill_mad.png" id="25_2uep2"]
 [ext_resource type="Texture2D" uid="uid://cgnobt3wv8q2b" path="res://character/gill_thinking.png" id="26_t3b85"]
+[ext_resource type="Texture2D" uid="uid://gr1ykt6p8dwj" path="res://character/fishman_bro.png" id="27_m2j88"]
+[ext_resource type="Texture2D" uid="uid://joadw7vkyuks" path="res://character/fishman_lad.png" id="28_qcy5j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -142,7 +144,9 @@ character_portraits = Dictionary[String, Texture2D]({
 "Clair?": ExtResource("21_umkw8"),
 "Dino Dude": ExtResource("13_k1ft5"),
 "Dino Guy": ExtResource("8_nm74b"),
+"Fisherman Bro": ExtResource("27_m2j88"),
 "Fisherman Bro!": ExtResource("23_umkw8"),
+"Fisherman Lad": ExtResource("28_qcy5j"),
 "Fisherman Lad!": ExtResource("22_18f8u"),
 "GILL": ExtResource("25_2uep2"),
 "Gill": ExtResource("24_umkw8"),
