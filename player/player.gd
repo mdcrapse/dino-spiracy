@@ -175,17 +175,17 @@ func _perform_wall_jump() -> void:
 
 func _update_animation_hooks() -> void:
 	$Sprite2D.flip_h = facing_right
-	#var anim := $CharacterAnimations
-	#if is_on_floor():
-		#if abs(velocity.x) > 10:
-			#anim.play("run")
-		#else:
-			#anim.play("idle")
-	#else:
-		#if velocity.y < 0:
-			#anim.play("jump")
-		#else:
-			#if _is_wall_sliding:
-				#anim.play("wall_slide")
-			#else:
-				#anim.play("fall")
+	var anim := $CharacterAnimations
+	if is_on_floor():
+		if abs(velocity.x) > 10:
+			anim.play("run")
+		else:
+			anim.play("idle")
+	else:
+		if velocity.y < 0:
+			anim.play("jump")
+		else:
+			if _is_wall_sliding:
+				anim.play("wall_slide")
+			else:
+				anim.play("fall")

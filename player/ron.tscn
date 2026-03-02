@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bbt3118fi5x0r"]
+
+[ext_resource type="PackedScene" uid="uid://d127bfau072lk" path="res://player/player.tscn" id="1_g2dgj"]
+[ext_resource type="Texture2D" uid="uid://bxa881to0eoa3" path="res://player/ron.png" id="2_g6yt2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2dgj"]
+radius = 11.0
+height = 50.0
+
+[node name="Ron" unique_id=1890555838 instance=ExtResource("1_g2dgj")]
+character = "ron"
+
+[node name="Sprite2D" parent="." index="0" unique_id=645274886]
+position = Vector2(1, -31)
+texture = ExtResource("2_g6yt2")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1685544217]
+position = Vector2(0, -25)
+shape = SubResource("CapsuleShape2D_g2dgj")

@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://g7u312lkxeg3"]
 
 [ext_resource type="PackedScene" uid="uid://m6vogw6yvind" path="res://player/player_camera.tscn" id="1_a8nle"]
+[ext_resource type="Script" uid="uid://n55lar5rsdg0" path="res://stage/stage.gd" id="1_v3mmb"]
 
 [node name="Stage" type="Node2D" unique_id=1735913056]
+script = ExtResource("1_v3mmb")
 
 [node name="BackgroundParallax" type="Parallax2D" parent="." unique_id=39541692]
 
@@ -25,3 +27,9 @@ scroll_offset = Vector2(0, 1)
 [node name="Foreground" type="Sprite2D" parent="ForegroundParallax" unique_id=455653551]
 
 [node name="PlayerCamera" parent="." unique_id=857904607 instance=ExtResource("1_a8nle")]
+
+[node name="Day1" type="Node2D" parent="." unique_id=1684897985]
+
+[node name="Day2" type="Node2D" parent="." unique_id=1758396874]
+
+[node name="Day3" type="Node2D" parent="." unique_id=1186257443]
