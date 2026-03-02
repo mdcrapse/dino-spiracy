@@ -14,7 +14,15 @@
 [ext_resource type="Texture2D" uid="uid://bw2v43epopn7b" path="res://character/ruffian3.png" id="10_omudo"]
 [ext_resource type="Texture2D" uid="uid://douob6a2fku7c" path="res://character/ted_asco_normal.png" id="11_ihybi"]
 [ext_resource type="Texture2D" uid="uid://cnbdl3nn8ew1s" path="res://character/ted_asco_alt.png" id="12_io0n2"]
+[ext_resource type="Texture2D" uid="uid://dhegfyx8fh3dw" path="res://character/syd_normal.png" id="13_42oad"]
 [ext_resource type="Texture2D" uid="uid://0sy885wrkwch" path="res://character/fisherman_normal.png" id="13_k1ft5"]
+[ext_resource type="Texture2D" uid="uid://cxhiv2xr8kt64" path="res://character/ron_normal.png" id="13_nm74b"]
+[ext_resource type="Texture2D" uid="uid://d0d0hgcypwr3j" path="res://character/ron_surprise.png" id="14_6x7hq"]
+[ext_resource type="Texture2D" uid="uid://dgm0bf31glupf" path="res://character/ron_sad.png" id="15_omudo"]
+[ext_resource type="Texture2D" uid="uid://bov1yf3vhmmrp" path="res://character/ron_mad.png" id="16_ihybi"]
+[ext_resource type="Texture2D" uid="uid://cb1acwi55xc3y" path="res://character/syd_surprise.png" id="19_32rb8"]
+[ext_resource type="Texture2D" uid="uid://cxgibfox5hg25" path="res://character/syd_mad.png" id="20_18f8u"]
+[ext_resource type="Texture2D" uid="uid://7af6f712qgr6" path="res://character/syd_sad.png" id="21_umkw8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -123,15 +131,25 @@ script = ExtResource("1_36de5")
 character_portraits = Dictionary[String, Texture2D]({
 "Barkeep": ExtResource("4_tfcw6"),
 "Barkeep!": ExtResource("5_k1ft5"),
-"Chev Ron": ExtResource("13_k1ft5"),
-"Clair": ExtResource("2_t3c2s"),
+"Chev Ron": ExtResource("13_nm74b"),
+"Clair": ExtResource("13_42oad"),
+"Clair!": ExtResource("19_32rb8"),
+"Clair?": ExtResource("21_umkw8"),
+"Dino Dude": ExtResource("13_k1ft5"),
+"Dino Guy": ExtResource("8_nm74b"),
 "Miss Tera Msue": ExtResource("6_xio14"),
 "Miss Tera Msue!": ExtResource("7_2l4jx"),
 "Nasty Ruffian": ExtResource("9_6x7hq"),
 "Pretentious Ruffian": ExtResource("10_omudo"),
-"Ron": ExtResource("13_k1ft5"),
-"Syd": ExtResource("2_t3c2s"),
+"RON": ExtResource("16_ihybi"),
+"Ron": ExtResource("13_nm74b"),
+"Ron!": ExtResource("14_6x7hq"),
+"Ron?": ExtResource("15_omudo"),
+"SYD": ExtResource("20_18f8u"),
+"Syd": ExtResource("13_42oad"),
 "Syd Clair": ExtResource("2_t3c2s"),
+"Syd!": ExtResource("19_32rb8"),
+"Syd?": ExtResource("21_umkw8"),
 "TV": ExtResource("4_tfcw6"),
 "Ted Asco": ExtResource("11_ihybi"),
 "Ted Asco!": ExtResource("12_io0n2"),
