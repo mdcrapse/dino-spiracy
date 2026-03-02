@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://chcpkyxme7fb7"
+path="res://.godot/imported/talk1_inn_start.dialogue-dd6d7f36a7a6ebb4e7afefa595226ea9.tres"
+
+[deps]
+
+source_file="res://dialogue/day2/talk1_inn_start.dialogue"
+dest_files=["res://.godot/imported/talk1_inn_start.dialogue-dd6d7f36a7a6ebb4e7afefa595226ea9.tres"]
+
+[params]
+
+defaults=true

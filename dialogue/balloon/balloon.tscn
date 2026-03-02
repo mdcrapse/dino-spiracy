@@ -23,6 +23,11 @@
 [ext_resource type="Texture2D" uid="uid://cb1acwi55xc3y" path="res://character/syd_surprise.png" id="19_32rb8"]
 [ext_resource type="Texture2D" uid="uid://cxgibfox5hg25" path="res://character/syd_mad.png" id="20_18f8u"]
 [ext_resource type="Texture2D" uid="uid://7af6f712qgr6" path="res://character/syd_sad.png" id="21_umkw8"]
+[ext_resource type="Texture2D" uid="uid://cyxljwksgfpww" path="res://character/fishman_lad_angry.png" id="22_18f8u"]
+[ext_resource type="Texture2D" uid="uid://ddhfx1mbpmynt" path="res://character/fishman_bro_angry.png" id="23_umkw8"]
+[ext_resource type="Texture2D" uid="uid://cvhtnpyo6gpep" path="res://character/gill_normal.png" id="24_umkw8"]
+[ext_resource type="Texture2D" uid="uid://kx61mdrslten" path="res://character/gill_mad.png" id="25_2uep2"]
+[ext_resource type="Texture2D" uid="uid://cgnobt3wv8q2b" path="res://character/gill_thinking.png" id="26_t3b85"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -137,6 +142,11 @@ character_portraits = Dictionary[String, Texture2D]({
 "Clair?": ExtResource("21_umkw8"),
 "Dino Dude": ExtResource("13_k1ft5"),
 "Dino Guy": ExtResource("8_nm74b"),
+"Fisherman Bro!": ExtResource("23_umkw8"),
+"Fisherman Lad!": ExtResource("22_18f8u"),
+"GILL": ExtResource("25_2uep2"),
+"Gill": ExtResource("24_umkw8"),
+"Gill?": ExtResource("26_t3b85"),
 "Miss Tera Msue": ExtResource("6_xio14"),
 "Miss Tera Msue!": ExtResource("7_2l4jx"),
 "Nasty Ruffian": ExtResource("9_6x7hq"),
@@ -188,6 +198,12 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="Balloon/MarginContainer" unique_id=251789536]
 layout_mode = 2
 theme_override_constants/separation = 0
+
+[node name="Filler" type="Control" parent="Balloon/MarginContainer/VBoxContainer" unique_id=1244866721]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="PortraitPanel" type="PanelContainer" parent="Balloon/MarginContainer/VBoxContainer" unique_id=1731054736]
 unique_name_in_owner = true

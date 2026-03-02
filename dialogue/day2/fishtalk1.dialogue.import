@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://csntbjbor63h5"
+path="res://.godot/imported/fishtalk1.dialogue-48c4b4299f811634e7dfeccb00670af9.tres"
+
+[deps]
+
+source_file="res://dialogue/day2/fishtalk1.dialogue"
+dest_files=["res://.godot/imported/fishtalk1.dialogue-48c4b4299f811634e7dfeccb00670af9.tres"]
+
+[params]
+
+defaults=true

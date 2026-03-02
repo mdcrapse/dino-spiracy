@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://b2ykqmsnjtd60"
+path="res://.godot/imported/talk2_arrive_at_lake.dialogue-9c27fa49dc95455fc1a72932614a17c4.tres"
+
+[deps]
+
+source_file="res://dialogue/day2/talk2_arrive_at_lake.dialogue"
+dest_files=["res://.godot/imported/talk2_arrive_at_lake.dialogue-9c27fa49dc95455fc1a72932614a17c4.tres"]
+
+[params]
+
+defaults=true

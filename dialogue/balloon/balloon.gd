@@ -73,6 +73,10 @@ var mutation_cooldown: Timer = Timer.new()
 
 @onready var portrait = %Portrait
 
+@onready var portrait_panel = %PortraitPanel
+
+@onready var filler = %Filler
+
 signal character_changed(character: String)
 
 func _ready() -> void:
@@ -137,10 +141,16 @@ func apply_dialogue_line() -> void:
 	if character_label.text != dialogue_line.character:
 		character_changed.emit(dialogue_line.character)
 		if dialogue_line.character in character_portraits:
-			portrait.show()
+			filler.hide()
+			portrait_panel.show()
 			portrait.texture = character_portraits[dialogue_line.character]
+		elif dialogue_line.character == "":
+			portrait_panel.hide()
+			filler.show()
 		else:
-			portrait.hide()
+			filler.hide()
+			portrait_panel.show()
+			portrait.texture = preload("res://character/weirdo_speak.png")
 
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
