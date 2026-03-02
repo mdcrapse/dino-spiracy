@@ -2,8 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://g7u312lkxeg3" path="res://stage/stage.tscn" id="1_op2fg"]
 [ext_resource type="Texture2D" uid="uid://d137yvhrq4a5w" path="res://stage/playground/middleground.png" id="2_fl6nd"]
-[ext_resource type="PackedScene" uid="uid://bbt3118fi5x0r" path="res://player/ron.tscn" id="3_78112"]
-[ext_resource type="PackedScene" uid="uid://buwl1kscdlbk3" path="res://player/syd.tscn" id="4_2dxmm"]
 [ext_resource type="Resource" uid="uid://lmn7pfuqrmgh" path="res://dialogue/day3/talk2_arrive_at_bar.dialogue" id="4_kkqtj"]
 [ext_resource type="PackedScene" uid="uid://dsamhbgcvjv5o" path="res://character/character.tscn" id="5_2dxmm"]
 
@@ -21,14 +19,6 @@ position = Vector2(635, 62)
 
 [node name="Interactive" parent="Entities/Character" index="1" unique_id=916655246]
 opens_dialogue = ExtResource("4_kkqtj")
-
-[node name="Ron" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="1" unique_id=1890555838 instance=ExtResource("3_78112")]
-position = Vector2(170, 19)
-
-[node name="Syd" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="2" unique_id=706427354 instance=ExtResource("4_2dxmm")]
-position = Vector2(108, 31)
-wall_jump_horizontal = 400.0
-wall_jump_vertical = 800.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="6" unique_id=1746823366]
 

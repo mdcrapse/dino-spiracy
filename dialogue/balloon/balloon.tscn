@@ -138,8 +138,8 @@ script = ExtResource("1_36de5")
 character_portraits = Dictionary[String, Texture2D]({
 "Barkeep": ExtResource("4_tfcw6"),
 "Barkeep!": ExtResource("5_k1ft5"),
-"Chev Ron": ExtResource("13_nm74b"),
-"Clair": ExtResource("13_42oad"),
+"Chev Ron": ExtResource("13_42oad"),
+"Clair": ExtResource("13_nm74b"),
 "Clair!": ExtResource("19_32rb8"),
 "Clair?": ExtResource("21_umkw8"),
 "Dino Dude": ExtResource("13_k1ft5"),
