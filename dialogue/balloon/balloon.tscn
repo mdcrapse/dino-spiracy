@@ -208,12 +208,14 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="PortraitPanel" type="PanelContainer" parent="Balloon/MarginContainer/VBoxContainer" unique_id=1731054736]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/VBoxContainer/PortraitPanel" unique_id=969943886]
 layout_mode = 2
@@ -225,12 +227,14 @@ theme_override_constants/margin_bottom = 5
 [node name="PanelContainer" type="PanelContainer" parent="Balloon/MarginContainer/VBoxContainer/PortraitPanel/MarginContainer" unique_id=1926110294]
 clip_contents = true
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5xxl0")
 
 [node name="Portrait" type="TextureRect" parent="Balloon/MarginContainer/VBoxContainer/PortraitPanel/MarginContainer/PanelContainer" unique_id=1831608198]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 texture = ExtResource("2_5xxl0")
 expand_mode = 3
 stretch_mode = 5
