@@ -110,9 +110,13 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=1890555838 groups=["player"]]
-collision_layer = 0
+collision_layer = 2
 floor_max_angle = 1.134464
 script = ExtResource("1_oul6g")
+accel = 1100.0
+deaccel = 1000.0
+gravity = 1100.0
+jump_height = 80.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=645274886]
 texture = ExtResource("2_rkbax")

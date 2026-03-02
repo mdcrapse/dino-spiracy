@@ -1,8 +1,19 @@
 [gd_scene format=3 uid="uid://d176sirhq7xbo"]
 
 [ext_resource type="Script" uid="uid://7w68lx71aq6g" path="res://dialogue/balloon/balloon.gd" id="1_36de5"]
+[ext_resource type="Texture2D" uid="uid://1rhplhwd8a1o" path="res://character/weirdo_speak.png" id="2_5xxl0"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
+[ext_resource type="Texture2D" uid="uid://dmipnvwoid0im" path="res://character/weirdo_normal.png" id="2_t3c2s"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
+[ext_resource type="Texture2D" uid="uid://w7u53tvyxsj1" path="res://character/barkeep_normal.png" id="4_tfcw6"]
+[ext_resource type="Texture2D" uid="uid://jnimvovg7ih6" path="res://character/barkeep_alt.png" id="5_k1ft5"]
+[ext_resource type="Texture2D" uid="uid://b2ltaicuccjei" path="res://character/miss_tera_msue_normal.png" id="6_xio14"]
+[ext_resource type="Texture2D" uid="uid://bydg7ddebwau" path="res://character/miss_tera_msue_alt.png" id="7_2l4jx"]
+[ext_resource type="Texture2D" uid="uid://ch2auirvv1d2s" path="res://character/ruffian2.png" id="8_nm74b"]
+[ext_resource type="Texture2D" uid="uid://cxjipfdikvl2c" path="res://character/ruffian1.png" id="9_6x7hq"]
+[ext_resource type="Texture2D" uid="uid://bw2v43epopn7b" path="res://character/ruffian3.png" id="10_omudo"]
+[ext_resource type="Texture2D" uid="uid://douob6a2fku7c" path="res://character/ted_asco_normal.png" id="11_ihybi"]
+[ext_resource type="Texture2D" uid="uid://cnbdl3nn8ew1s" path="res://character/ted_asco_alt.png" id="12_io0n2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -63,6 +74,12 @@ MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xxl0"]
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
 [sub_resource type="Animation" id="Animation_nlsx6"]
 length = 0.001
 tracks/0/type = "bezier"
@@ -99,9 +116,23 @@ _data = {
 &"progress": SubResource("Animation_qkmqt")
 }
 
-[node name="Balloon" type="CanvasLayer" unique_id=596214545]
+[node name="Balloon" type="CanvasLayer" unique_id=596214545 groups=["dialogue_balloon"]]
 layer = 100
 script = ExtResource("1_36de5")
+character_portraits = Dictionary[String, Texture2D]({
+"Barkeep": ExtResource("4_tfcw6"),
+"Barkeep!": ExtResource("5_k1ft5"),
+"Miss Tera Msue": ExtResource("6_xio14"),
+"Miss Tera Msue!": ExtResource("7_2l4jx"),
+"Nasty Ruffian": ExtResource("9_6x7hq"),
+"Pretentious Ruffian": ExtResource("10_omudo"),
+"Ted Asco": ExtResource("11_ihybi"),
+"Ted Asco!": ExtResource("12_io0n2"),
+"Ugly Ruffian": ExtResource("8_nm74b"),
+"Weido!": ExtResource("2_5xxl0"),
+"Weirdo": ExtResource("2_t3c2s"),
+"Weirdo - Freaked": ExtResource("2_5xxl0")
+})
 
 [node name="Balloon" type="Control" parent="." unique_id=237385084]
 unique_name_in_owner = true
@@ -113,32 +144,70 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_qq3yp")
 
-[node name="MarginContainer" type="MarginContainer" parent="Balloon" unique_id=303573209]
+[node name="ColorRect" type="ColorRect" parent="Balloon" unique_id=910714875]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -219.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+color = Color(0.52480227, 0.8326501, 0.97751635, 0.36862746)
 
-[node name="PanelContainer" type="PanelContainer" parent="Balloon/MarginContainer" unique_id=1153082482]
+[node name="MarginContainer" type="MarginContainer" parent="Balloon" unique_id=303573209]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Balloon/MarginContainer" unique_id=251789536]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PortraitPanel" type="PanelContainer" parent="Balloon/MarginContainer/VBoxContainer" unique_id=1731054736]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/VBoxContainer/PortraitPanel" unique_id=969943886]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="Balloon/MarginContainer/VBoxContainer/PortraitPanel/MarginContainer" unique_id=1926110294]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5xxl0")
+
+[node name="Portrait" type="TextureRect" parent="Balloon/MarginContainer/VBoxContainer/PortraitPanel/MarginContainer/PanelContainer" unique_id=1831608198]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_5xxl0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="Balloon/MarginContainer/VBoxContainer" unique_id=1153082482]
 clip_children = 2
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 mouse_filter = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/PanelContainer" unique_id=932484576]
+[node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/VBoxContainer/PanelContainer" unique_id=932484576]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer" unique_id=560094581]
+[node name="HBoxContainer" type="HBoxContainer" parent="Balloon/MarginContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=560094581]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=719271509]
+[node name="VBoxContainer" type="VBoxContainer" parent="Balloon/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=719271509]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1252097585]
+[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1252097585]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
@@ -148,22 +217,22 @@ text = "Character"
 fit_content = true
 scroll_active = false
 
-[node name="DialogueLabel" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1438434108 instance=ExtResource("2_a8ve6")]
+[node name="DialogueLabel" parent="Balloon/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1438434108 instance=ExtResource("2_a8ve6")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Dialogue..."
 
-[node name="Control" type="Control" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=835935438]
+[node name="Control" type="Control" parent="Balloon/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=835935438]
 custom_minimum_size = Vector2(20, 10)
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="Progress" type="Polygon2D" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Control" unique_id=670607404]
+[node name="Progress" type="Polygon2D" parent="Balloon/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/Control" unique_id=670607404]
 unique_name_in_owner = true
 polygon = PackedVector2Array(0, 0, 10, 10, 20, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Control" unique_id=406603283]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Balloon/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/Control" unique_id=406603283]
 libraries/ = SubResource("AnimationLibrary_1337t")
 autoplay = &"progress"
 

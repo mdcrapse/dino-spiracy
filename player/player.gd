@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export_category("Input")
 @export var character: String = "syd"
+@export var interact_hint: String = "S"
 
 @export_category("Movement")
 @export_range(0.0, 2000.0, 1.0) var walk_speed: float = 180.0
@@ -43,8 +44,16 @@ var previous_pos := position
 @onready var input_move_left: String = character + "_move_left"
 @onready var input_move_right: String = character + "_move_right"
 @onready var input_jump: String = character + "_jump"
+@onready var input_interact: String = character + "_crouch"
+
+@onready var anim := $CharacterAnimations
 
 func _physics_process(delta: float) -> void:
+	# HACK: use _unhandled_input instead of doing this
+	if not get_tree().get_nodes_in_group("dialogue_balloon").is_empty():
+		anim.play("idle")
+		return;
+		
 	_apply_gravity(delta)
 	_handle_timers(delta)
 	var input_dir := _get_input_direction()
@@ -175,7 +184,6 @@ func _perform_wall_jump() -> void:
 
 func _update_animation_hooks() -> void:
 	$Sprite2D.flip_h = facing_right
-	var anim := $CharacterAnimations
 	if is_on_floor():
 		if abs(velocity.x) > 10:
 			anim.play("run")

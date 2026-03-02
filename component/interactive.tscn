@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://yoagoaom0bgn"]
+
+[ext_resource type="Script" uid="uid://b6e0j07cem2ja" path="res://component/interactive.gd" id="1_hhwra"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hhwra"]
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ki3b"]
+bg_color = Color(0.15775329, 0.15775335, 0.1577532, 1)
+border_width_bottom = 3
+border_color = Color(0.5322423, 0.5322424, 0.5322421, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="Interactive" type="Area2D" unique_id=916655246]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_hhwra")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="." unique_id=1179095694]
+offset_left = -51.0
+offset_top = -27.0
+offset_right = 52.0
+offset_bottom = -1.0
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=5322742]
+layout_mode = 2
+text = "INTERACT"
+label_settings = SubResource("LabelSettings_hhwra")
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1610278135]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2ki3b")
+
+[node name="HintLabel" type="Label" parent="VBoxContainer/PanelContainer" unique_id=888240708]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(23, 23)
+layout_mode = 2
+text = "S"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

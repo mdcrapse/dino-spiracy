@@ -9,6 +9,11 @@ height = 50.0
 
 [node name="Ron" unique_id=1890555838 instance=ExtResource("1_g2dgj")]
 character = "ron"
+interact_hint = "↓"
+walk_speed = 230.0
+accel = 1800.0
+deaccel = 1500.0
+jump_height = 40.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=645274886]
 position = Vector2(1, -31)

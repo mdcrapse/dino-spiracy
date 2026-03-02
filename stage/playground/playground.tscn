@@ -4,22 +4,47 @@
 [ext_resource type="Texture2D" uid="uid://d137yvhrq4a5w" path="res://stage/playground/middleground.png" id="2_fl6nd"]
 [ext_resource type="PackedScene" uid="uid://bbt3118fi5x0r" path="res://player/ron.tscn" id="3_78112"]
 [ext_resource type="PackedScene" uid="uid://buwl1kscdlbk3" path="res://player/syd.tscn" id="4_2dxmm"]
+[ext_resource type="Resource" uid="uid://nu0vi213jy63" path="res://dialogue/intro.dialogue" id="4_kkqtj"]
+[ext_resource type="PackedScene" uid="uid://dsamhbgcvjv5o" path="res://character/character.tscn" id="5_2dxmm"]
 
 [node name="Playground" unique_id=1735913056 instance=ExtResource("1_op2fg")]
 
 [node name="Middleground" parent="." index="1" unique_id=1002627971]
 texture = ExtResource("2_fl6nd")
 
-[node name="Ron" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="0" unique_id=1890555838 instance=ExtResource("3_78112")]
+[node name="Middleground2" type="Sprite2D" parent="." index="2" unique_id=704869779]
+position = Vector2(496, 48)
+texture = ExtResource("2_fl6nd")
+
+[node name="Character" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="0" unique_id=686847446 instance=ExtResource("5_2dxmm")]
+position = Vector2(635, 62)
+
+[node name="Interactive" parent="Entities/Character" index="1" unique_id=916655246]
+opens_dialogue = ExtResource("4_kkqtj")
+
+[node name="Ron" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="1" unique_id=1890555838 instance=ExtResource("3_78112")]
 position = Vector2(170, 19)
 
-[node name="Syd" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="1" unique_id=706427354 instance=ExtResource("4_2dxmm")]
+[node name="Syd" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="2" unique_id=706427354 instance=ExtResource("4_2dxmm")]
 position = Vector2(108, 31)
+wall_jump_horizontal = 400.0
+wall_jump_vertical = 800.0
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="5" unique_id=1746823366]
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="6" unique_id=1746823366]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0" unique_id=372299177]
 polygon = PackedVector2Array(-2, 45, 248, 47, 250, 247, -250, 248, -249, 1, -228, 26, -204, 45, -185, 79, -176, 109, -162, 132, -150, 153, -127, 157, -103, 150, -68, 116, -27, 68)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D" index="1" unique_id=543349452]
 polygon = PackedVector2Array(-191, -103, -182, -87, -161, -75, -137, -73, -120, -74, -100, -64, -69, -59, -49, -50, -44, -59, -60, -70, -72, -87, -86, -110, -108, -129, -138, -127, -163, -119)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." index="7" unique_id=705318766]
+position = Vector2(496, 48)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2" index="0" unique_id=1983960599]
+polygon = PackedVector2Array(-2, 45, 248, 47, 250, 247, -250, 248, -249, 1, -228, 26, -204, 45, -185, 79, -176, 109, -162, 132, -150, 153, -127, 157, -103, 150, -68, 116, -27, 68)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D2" index="1" unique_id=1755164429]
+polygon = PackedVector2Array(-191, -103, -182, -87, -161, -75, -137, -73, -120, -74, -100, -64, -69, -59, -49, -50, -44, -59, -60, -70, -72, -87, -86, -110, -108, -129, -138, -127, -163, -119)
+
+[editable path="Entities/Character"]

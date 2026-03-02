@@ -7,6 +7,7 @@ radius = 19.0
 height = 82.0
 
 [node name="Syd" unique_id=1890555838 instance=ExtResource("1_iskps")]
+can_wall_slide = false
 
 [node name="Sprite2D" parent="." index="0" unique_id=645274886]
 position = Vector2(-5, -38)
