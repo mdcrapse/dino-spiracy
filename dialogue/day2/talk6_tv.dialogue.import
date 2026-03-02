@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://0rmto2u412hc"
+path="res://.godot/imported/talk6_tv.dialogue-c756e990ebec039a894ec6fa14d31f79.tres"
+
+[deps]
+
+source_file="res://dialogue/day2/talk6_tv.dialogue"
+dest_files=["res://.godot/imported/talk6_tv.dialogue-c756e990ebec039a894ec6fa14d31f79.tres"]
+
+[params]
+
+defaults=true
