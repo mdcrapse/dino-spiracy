@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://b32ocywti2m34"]
+
+[ext_resource type="PackedScene" uid="uid://g7u312lkxeg3" path="res://stage/stage.tscn" id="1_4colg"]
+[ext_resource type="Resource" uid="uid://lmn7pfuqrmgh" path="res://dialogue/day3/talk2_arrive_at_bar.dialogue" id="2_3twdg"]
+[ext_resource type="PackedScene" uid="uid://bbt3118fi5x0r" path="res://player/ron.tscn" id="2_m5lnr"]
+[ext_resource type="Texture2D" uid="uid://chojqhv368mhv" path="res://stage/bar.png" id="3_3nnbt"]
+[ext_resource type="PackedScene" uid="uid://buwl1kscdlbk3" path="res://player/syd.tscn" id="3_ddt7f"]
+[ext_resource type="PackedScene" uid="uid://dsamhbgcvjv5o" path="res://character/character.tscn" id="4_lt2k0"]
+[ext_resource type="Texture2D" uid="uid://jyssow6bwxl8" path="res://character/drunkard2.png" id="5_chmg3"]
+[ext_resource type="Resource" uid="uid://ww7dyb0yr6tw" path="res://dialogue/day3/talk3_win_barfight.dialogue" id="5_eodm2"]
+[ext_resource type="Texture2D" uid="uid://dwue2e6e187dw" path="res://character/drunkard1.png" id="6_le20h"]
+[ext_resource type="Texture2D" uid="uid://h87vxktp5ec6" path="res://character/drunkard3.png" id="7_eodm2"]
+[ext_resource type="Texture2D" uid="uid://bhhf0kle2wmoc" path="res://character/barkeep.png" id="8_eodm2"]
+[ext_resource type="Texture2D" uid="uid://bb040j5q550rg" path="res://character/townfolk1.png" id="10_32aly"]
+[ext_resource type="Texture2D" uid="uid://b762batp5kv3b" path="res://character/townfolk2.png" id="11_e1akf"]
+[ext_resource type="Texture2D" uid="uid://cj6js2nd5ko7" path="res://stage/bar_foreground.png" id="12_4m3le"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3twdg"]
+size = Vector2(1434, 279)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32aly"]
+size = Vector2(1434, 651.5)
+
+[node name="Bar" unique_id=1735913056 instance=ExtResource("1_4colg")]
+start_dialogue = ExtResource("2_3twdg")
+
+[node name="ColorRect" type="ColorRect" parent="." index="0" unique_id=1410003542]
+offset_left = -1963.0
+offset_top = -1452.0
+offset_right = 2098.0
+offset_bottom = 1447.0
+color = Color(0, 0, 0, 1)
+
+[node name="Middleground" parent="." index="2" unique_id=1002627971]
+position = Vector2(-5, -148)
+texture = ExtResource("3_3nnbt")
+
+[node name="Character4" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="0" unique_id=239195416 instance=ExtResource("4_lt2k0")]
+position = Vector2(-310, -47)
+
+[node name="Sprite2D" parent="Entities/Character4" index="0" unique_id=1817010274]
+texture = ExtResource("8_eodm2")
+flip_h = true
+
+[node name="Interactive" parent="Entities/Character4" index="1" unique_id=916655246]
+goto_stage = "res://stage/tv.tscn"
+opens_dialogue = ExtResource("5_eodm2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="1" unique_id=1248165265]
+position = Vector2(-103, -46)
+texture = ExtResource("5_chmg3")
+flip_h = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="2" unique_id=1853296690]
+position = Vector2(-174, -47)
+texture = ExtResource("6_le20h")
+flip_h = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="3" unique_id=1388877536]
+position = Vector2(-31, -45)
+texture = ExtResource("7_eodm2")
+
+[node name="Townfolk1" type="Sprite2D" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="4" unique_id=299801376]
+position = Vector2(274, -43)
+texture = ExtResource("10_32aly")
+
+[node name="Townfolk2" type="Sprite2D" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="5" unique_id=1612806650]
+position = Vector2(213, -44)
+texture = ExtResource("11_e1akf")
+flip_h = true
+
+[node name="Ron" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="6" unique_id=1890555838 instance=ExtResource("2_m5lnr")]
+position = Vector2(287, -4)
+
+[node name="Syd" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="7" unique_id=1538883291 instance=ExtResource("3_ddt7f")]
+position = Vector2(287, -4)
+
+[node name="Middleground2" type="Sprite2D" parent="." index="7" unique_id=543748076]
+position = Vector2(-5, -148)
+texture = ExtResource("12_4m3le")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain" parent_id_path=PackedInt32Array(1456199258) index="0" unique_id=1783410483]
+position = Vector2(54, 134)
+shape = SubResource("RectangleShape2D_3twdg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Terrain" parent_id_path=PackedInt32Array(1456199258) index="1" unique_id=51834566]
+position = Vector2(-1107, -253.25)
+shape = SubResource("RectangleShape2D_32aly")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Terrain" parent_id_path=PackedInt32Array(1456199258) index="2" unique_id=256392494]
+position = Vector2(1095, -140)
+shape = SubResource("RectangleShape2D_32aly")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Terrain" parent_id_path=PackedInt32Array(1456199258) index="3" unique_id=206254709]
+position = Vector2(21, -599)
+shape = SubResource("RectangleShape2D_32aly")
+
+[editable path="Entities/Character4"]

@@ -2,8 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://g7u312lkxeg3" path="res://stage/stage.tscn" id="1_op2fg"]
 [ext_resource type="Texture2D" uid="uid://d137yvhrq4a5w" path="res://stage/playground/middleground.png" id="2_fl6nd"]
+[ext_resource type="PackedScene" uid="uid://bbt3118fi5x0r" path="res://player/ron.tscn" id="3_78112"]
 [ext_resource type="Resource" uid="uid://lmn7pfuqrmgh" path="res://dialogue/day3/talk2_arrive_at_bar.dialogue" id="4_kkqtj"]
 [ext_resource type="PackedScene" uid="uid://dsamhbgcvjv5o" path="res://character/character.tscn" id="5_2dxmm"]
+[ext_resource type="PackedScene" uid="uid://buwl1kscdlbk3" path="res://player/syd.tscn" id="7_f6n6o"]
 
 [node name="Playground" unique_id=1735913056 instance=ExtResource("1_op2fg")]
 
@@ -13,12 +15,6 @@ texture = ExtResource("2_fl6nd")
 [node name="Middleground2" type="Sprite2D" parent="." index="2" unique_id=704869779]
 position = Vector2(496, 48)
 texture = ExtResource("2_fl6nd")
-
-[node name="Character" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="0" unique_id=686847446 instance=ExtResource("5_2dxmm")]
-position = Vector2(635, 62)
-
-[node name="Interactive" parent="Entities/Character" index="1" unique_id=916655246]
-opens_dialogue = ExtResource("4_kkqtj")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="6" unique_id=1746823366]
 
@@ -36,5 +32,16 @@ polygon = PackedVector2Array(-2, 45, 248, 47, 250, 247, -250, 248, -249, 1, -228
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D2" index="1" unique_id=1755164429]
 polygon = PackedVector2Array(-191, -103, -182, -87, -161, -75, -137, -73, -120, -74, -100, -64, -69, -59, -49, -50, -44, -59, -60, -70, -72, -87, -86, -110, -108, -129, -138, -127, -163, -119)
+
+[node name="Character" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="0" unique_id=686847446 instance=ExtResource("5_2dxmm")]
+position = Vector2(635, 62)
+
+[node name="Interactive" parent="Entities/Character" index="1" unique_id=916655246]
+goto_stage = "res://stage/inn.tscn"
+opens_dialogue = ExtResource("4_kkqtj")
+
+[node name="Ron" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="1" unique_id=1890555838 instance=ExtResource("3_78112")]
+
+[node name="Syd" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="2" unique_id=776917269 instance=ExtResource("7_f6n6o")]
 
 [editable path="Entities/Character"]

@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cwsdt7hlurspu" path="res://stage/inn.png" id="2_up42m"]
 [ext_resource type="Texture2D" uid="uid://c81jcgeih6wjv" path="res://stage/inn_foreground.png" id="3_cimuh"]
 [ext_resource type="PackedScene" uid="uid://dsamhbgcvjv5o" path="res://character/character.tscn" id="3_g06s0"]
+[ext_resource type="PackedScene" uid="uid://bbt3118fi5x0r" path="res://player/ron.tscn" id="3_qwoqh"]
+[ext_resource type="PackedScene" uid="uid://buwl1kscdlbk3" path="res://player/syd.tscn" id="4_1kewj"]
 [ext_resource type="Texture2D" uid="uid://67e20nekpb8v" path="res://character/miss_tera_msue.png" id="4_peja8"]
 [ext_resource type="Resource" uid="uid://b4p6l116xinow" path="res://dialogue/day3/talk1_arrive_at_innkeeper.dialogue" id="5_g06s0"]
 [ext_resource type="Resource" uid="uid://chcpkyxme7fb7" path="res://dialogue/day2/talk1_inn_start.dialogue" id="6_peja8"]
@@ -35,15 +37,6 @@ color = Color(0, 0, 0, 1)
 [node name="Middleground" parent="." index="2" unique_id=1002627971]
 texture = ExtResource("2_up42m")
 
-[node name="Ron" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="0" unique_id=1890555838]
-position = Vector2(422, 126)
-
-[node name="Syd" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="1" unique_id=22078738]
-position = Vector2(422, 126)
-
-[node name="Middleground2" type="Sprite2D" parent="." index="5" unique_id=1723312863]
-texture = ExtResource("3_cimuh")
-
 [node name="Character2" parent="Day2" parent_id_path=PackedInt32Array(1758396874) index="0" unique_id=686847446 instance=ExtResource("3_g06s0")]
 position = Vector2(-314, 103)
 
@@ -61,7 +54,17 @@ position = Vector2(-227, 106)
 texture = ExtResource("4_peja8")
 
 [node name="Interactive" parent="Day3/Character" index="1" unique_id=916655246]
+goto_stage = "res://stage/bar.tscn"
 opens_dialogue = ExtResource("5_g06s0")
+
+[node name="Ron" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="0" unique_id=1890555838 instance=ExtResource("3_qwoqh")]
+position = Vector2(427, 138)
+
+[node name="Syd" parent="Entities" parent_id_path=PackedInt32Array(39001736) index="1" unique_id=1602931625 instance=ExtResource("4_1kewj")]
+position = Vector2(427, 138)
+
+[node name="Middleground2" type="Sprite2D" parent="." index="8" unique_id=1723312863]
+texture = ExtResource("3_cimuh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain" parent_id_path=PackedInt32Array(1456199258) index="0" unique_id=408917742]
 position = Vector2(161, 256.5)

@@ -2,10 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://m6vogw6yvind" path="res://player/player_camera.tscn" id="1_a8nle"]
 [ext_resource type="Script" uid="uid://n55lar5rsdg0" path="res://stage/stage.gd" id="1_v3mmb"]
-[ext_resource type="PackedScene" uid="uid://bbt3118fi5x0r" path="res://player/ron.tscn" id="2_s88my"]
-[ext_resource type="PackedScene" uid="uid://buwl1kscdlbk3" path="res://player/syd.tscn" id="3_ve7pq"]
 
-[node name="Stage" type="Node2D" unique_id=1735913056]
+[node name="Stage" type="Node2D" unique_id=1735913056 groups=["stage"]]
 script = ExtResource("1_v3mmb")
 
 [node name="BackgroundParallax" type="Parallax2D" parent="." unique_id=39541692]
@@ -14,11 +12,13 @@ script = ExtResource("1_v3mmb")
 
 [node name="Middleground" type="Sprite2D" parent="." unique_id=1002627971]
 
+[node name="Day1" type="Node2D" parent="." unique_id=1684897985]
+
+[node name="Day2" type="Node2D" parent="." unique_id=1758396874]
+
+[node name="Day3" type="Node2D" parent="." unique_id=1186257443]
+
 [node name="Entities" type="Node2D" parent="." unique_id=39001736]
-
-[node name="Ron" parent="Entities" unique_id=1890555838 instance=ExtResource("2_s88my")]
-
-[node name="Syd" parent="Entities" unique_id=22078738 instance=ExtResource("3_ve7pq")]
 
 [node name="Entrances" type="Node2D" parent="." unique_id=1285196593]
 editor_description = "List of entrances the player may come through.
@@ -33,11 +33,5 @@ scroll_offset = Vector2(0, 1)
 [node name="Foreground" type="Sprite2D" parent="ForegroundParallax" unique_id=455653551]
 
 [node name="PlayerCamera" parent="." unique_id=857904607 instance=ExtResource("1_a8nle")]
-
-[node name="Day1" type="Node2D" parent="." unique_id=1684897985]
-
-[node name="Day2" type="Node2D" parent="." unique_id=1758396874]
-
-[node name="Day3" type="Node2D" parent="." unique_id=1186257443]
 
 [node name="Terrain" type="StaticBody2D" parent="." unique_id=1456199258]

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://hby760o38opo"]
+
+[ext_resource type="PackedScene" uid="uid://g7u312lkxeg3" path="res://stage/stage.tscn" id="1_crexv"]
+[ext_resource type="Resource" uid="uid://lqpd4xgmxamo" path="res://dialogue/day3/talk5_tv.dialogue" id="2_tpw32"]
+[ext_resource type="Script" uid="uid://bed3vwwfx6i7m" path="res://stage/tv_broadcast.gd" id="3_1581l"]
+
+[node name="TV" unique_id=1735913056 instance=ExtResource("1_crexv")]
+start_dialogue = ExtResource("2_tpw32")
+goto_stage = "res://stage/inn.tscn"
+
+[node name="ColorRect" type="ColorRect" parent="." index="10" unique_id=1997658865]
+offset_left = -1386.0
+offset_top = -877.0
+offset_right = 1351.0
+offset_bottom = 838.0
+color = Color(0.06136909, 0.0613691, 0.06136909, 1)
+
+[node name="TVBroadcast" type="Node2D" parent="." index="11" unique_id=625063621]
+script = ExtResource("3_1581l")

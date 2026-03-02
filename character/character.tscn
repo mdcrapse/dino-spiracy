@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://yoagoaom0bgn" path="res://component/interactive.tscn" id="1_yf0e5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1l1n4"]
-radius = 48.259712
+radius = 14.3178215
 
 [node name="Character" type="Node2D" unique_id=686847446]
 

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dgvmmepl0k6mr"]
+
+[ext_resource type="PackedScene" uid="uid://yoagoaom0bgn" path="res://component/interactive.tscn" id="1_vi4eo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vi4eo"]
+radius = 41.01219
+
+[node name="StageExit" type="Node2D" unique_id=1684742558]
+
+[node name="Interactive" parent="." unique_id=916655246 instance=ExtResource("1_vi4eo")]
+position = Vector2(0, -49)
+
+[node name="VBoxContainer" parent="Interactive" index="0" unique_id=1179095694]
+offset_left = -30.0
+offset_top = -24.0
+offset_right = 30.0
+offset_bottom = 2.0
+
+[node name="Label" parent="Interactive/VBoxContainer" index="0" unique_id=5322742]
+text = "EXIT"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactive" unique_id=1189530723]
+position = Vector2(1, 48)
+shape = SubResource("CircleShape2D_vi4eo")
+
+[editable path="Interactive"]

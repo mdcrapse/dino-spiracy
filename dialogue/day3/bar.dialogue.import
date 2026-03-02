@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bao5g4fh5oncd"
+path="res://.godot/imported/bar.dialogue-66cb79ef4051e7d4ca6e47a23eadad10.tres"
+
+[deps]
+
+source_file="res://dialogue/day3/bar.dialogue"
+dest_files=["res://.godot/imported/bar.dialogue-66cb79ef4051e7d4ca6e47a23eadad10.tres"]
+
+[params]
+
+defaults=true
