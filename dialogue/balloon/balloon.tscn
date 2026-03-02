@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bw2v43epopn7b" path="res://character/ruffian3.png" id="10_omudo"]
 [ext_resource type="Texture2D" uid="uid://douob6a2fku7c" path="res://character/ted_asco_normal.png" id="11_ihybi"]
 [ext_resource type="Texture2D" uid="uid://cnbdl3nn8ew1s" path="res://character/ted_asco_alt.png" id="12_io0n2"]
+[ext_resource type="Texture2D" uid="uid://0sy885wrkwch" path="res://character/fisherman_normal.png" id="13_k1ft5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -122,16 +123,21 @@ script = ExtResource("1_36de5")
 character_portraits = Dictionary[String, Texture2D]({
 "Barkeep": ExtResource("4_tfcw6"),
 "Barkeep!": ExtResource("5_k1ft5"),
+"Chev Ron": ExtResource("13_k1ft5"),
+"Clair": ExtResource("2_t3c2s"),
 "Miss Tera Msue": ExtResource("6_xio14"),
 "Miss Tera Msue!": ExtResource("7_2l4jx"),
 "Nasty Ruffian": ExtResource("9_6x7hq"),
 "Pretentious Ruffian": ExtResource("10_omudo"),
+"Ron": ExtResource("13_k1ft5"),
+"Syd": ExtResource("2_t3c2s"),
+"Syd Clair": ExtResource("2_t3c2s"),
+"TV": ExtResource("4_tfcw6"),
 "Ted Asco": ExtResource("11_ihybi"),
 "Ted Asco!": ExtResource("12_io0n2"),
 "Ugly Ruffian": ExtResource("8_nm74b"),
-"Weido!": ExtResource("2_5xxl0"),
 "Weirdo": ExtResource("2_t3c2s"),
-"Weirdo - Freaked": ExtResource("2_5xxl0")
+"Weirdo!": ExtResource("2_5xxl0")
 })
 
 [node name="Balloon" type="Control" parent="." unique_id=237385084]

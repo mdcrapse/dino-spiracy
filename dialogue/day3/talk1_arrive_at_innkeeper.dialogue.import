@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://b4p6l116xinow"
+path="res://.godot/imported/talk1_arrive_at_innkeeper.dialogue-e435f208a4aca27015828458aa2a2294.tres"
+
+[deps]
+
+source_file="res://dialogue/day3/talk1_arrive_at_innkeeper.dialogue"
+dest_files=["res://.godot/imported/talk1_arrive_at_innkeeper.dialogue-e435f208a4aca27015828458aa2a2294.tres"]
+
+[params]
+
+defaults=true

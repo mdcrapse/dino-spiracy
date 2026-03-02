@@ -1,11 +1,12 @@
 ~ start
-Weirdo: ... and that concludes the weather forecast. Tonight, we have a new scoop about a hysteria outbreak!
-Weirdo: In the small town of Crest, just north of here, locals have begun making crazy claims about the weather recently
-Weirdo - Freaked: Their station needs some new equipment it seems!
-Weirdo: We got this scoop from a local, but they refused an offer for an interview and haven’t responded since
-Weirdo - Freaked: so, we will let you guys know more as this story progresses from!
-TV: and with that we turn to the traffic on Tri Street….
-# TODO: Fade to black
+TV: ... and that concludes the weather forecast. Tonight, we have a new scoop about a weather frenzy nearby!
+TV: In the small town of Crest, just north of here, we have gotten insider information that the weather and the people have been “going crazy”.
+TV: We got this scoop from a local, and have been attempting to make contact with that individual again for more information.
+TV: We haven’t found anything major on our weather channel, so perhaps their station needs some new equipment!
+TV: We will get back to you as this story progresses, and with that we turn to the traffic on Tri Street...
+
+# Fade to black
+
 Syd Clair: ... Sounds like there’s a scoop there, huh?
-Chev Ron: A small-town conspiracy... that sounds perfect
+Chev Ron: A small-town conspiracy... that sounds perfect.
 => END

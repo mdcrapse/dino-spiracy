@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://lmn7pfuqrmgh"
+path="res://.godot/imported/talk2_arrive_at_bar.dialogue-823bb4f65ba6b7f776d2a6724367082c.tres"
+
+[deps]
+
+source_file="res://dialogue/day3/talk2_arrive_at_bar.dialogue"
+dest_files=["res://.godot/imported/talk2_arrive_at_bar.dialogue-823bb4f65ba6b7f776d2a6724367082c.tres"]
+
+[params]
+
+defaults=true

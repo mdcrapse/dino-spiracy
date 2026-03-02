@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bt7r4whvqbfx"
+path="res://.godot/imported/bartalk1.dialogue-87476c26065530c0d66d26a0db1f1e91.tres"
+
+[deps]
+
+source_file="res://dialogue/day3/bartalk1.dialogue"
+dest_files=["res://.godot/imported/bartalk1.dialogue-87476c26065530c0d66d26a0db1f1e91.tres"]
+
+[params]
+
+defaults=true

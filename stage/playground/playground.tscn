@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d137yvhrq4a5w" path="res://stage/playground/middleground.png" id="2_fl6nd"]
 [ext_resource type="PackedScene" uid="uid://bbt3118fi5x0r" path="res://player/ron.tscn" id="3_78112"]
 [ext_resource type="PackedScene" uid="uid://buwl1kscdlbk3" path="res://player/syd.tscn" id="4_2dxmm"]
-[ext_resource type="Resource" uid="uid://nu0vi213jy63" path="res://dialogue/intro.dialogue" id="4_kkqtj"]
+[ext_resource type="Resource" uid="uid://lmn7pfuqrmgh" path="res://dialogue/day3/talk2_arrive_at_bar.dialogue" id="4_kkqtj"]
 [ext_resource type="PackedScene" uid="uid://dsamhbgcvjv5o" path="res://character/character.tscn" id="5_2dxmm"]
 
 [node name="Playground" unique_id=1735913056 instance=ExtResource("1_op2fg")]

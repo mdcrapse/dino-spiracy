@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://ww7dyb0yr6tw"
+path="res://.godot/imported/talk3_win_barfight.dialogue-68c941e750fa86d3c9ae07d57ea9bc79.tres"
+
+[deps]
+
+source_file="res://dialogue/day3/talk3_win_barfight.dialogue"
+dest_files=["res://.godot/imported/talk3_win_barfight.dialogue-68c941e750fa86d3c9ae07d57ea9bc79.tres"]
+
+[params]
+
+defaults=true
