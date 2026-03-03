@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://dfqe8iesd6hcn" path="res://fight/fight.gd" id="2_b28lu"]
 [ext_resource type="Texture2D" uid="uid://rm6nq8q5klqi" path="res://character/bar_ruffians.png" id="3_b28lu"]
 [ext_resource type="PackedScene" uid="uid://cf3kp0quoxsfk" path="res://fight/fight_log.tscn" id="4_akaej"]
-[ext_resource type="Texture2D" uid="uid://cxhiv2xr8kt64" path="res://character/ron_normal.png" id="6_b28lu"]
-[ext_resource type="Texture2D" uid="uid://dhegfyx8fh3dw" path="res://character/syd_normal.png" id="7_akaej"]
+[ext_resource type="Texture2D" uid="uid://cxhiv2xr8kt64" path="res://character/syd_normal.png" id="6_b28lu"]
+[ext_resource type="Texture2D" uid="uid://dhegfyx8fh3dw" path="res://character/ron_normal.png" id="7_akaej"]
 
 [sub_resource type="Theme" id="Theme_yw3gg"]
 default_font = ExtResource("1_uf30w")
