@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c3t4fpxdbe10u"]
+
+[ext_resource type="Texture2D" uid="uid://w7u53tvyxsj1" path="res://character/barkeep_normal.png" id="1_8lgqf"]
+
+[node name="FightHeart" type="TextureRect" unique_id=2003264455]
+custom_minimum_size = Vector2(48, 48)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_8lgqf")
+expand_mode = 1

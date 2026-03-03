@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dmipnvwoid0im" path="res://character/weirdo_normal.png" id="1_kuj55"]
 [ext_resource type="Script" uid="uid://brdswjme4nvhv" path="res://fight/player_fight_panel.gd" id="1_ughcd"]
+[ext_resource type="PackedScene" uid="uid://c4yaj1wcsayh8" path="res://fight/fight_health_bar.tscn" id="2_jukqt"]
 [ext_resource type="PackedScene" uid="uid://dsr8byiy6n1n3" path="res://fight/fight_choice.tscn" id="2_ughcd"]
 
 [node name="PlayerFightPanel" type="PanelContainer" unique_id=699665179]
@@ -23,6 +24,9 @@ layout_mode = 2
 layout_mode = 2
 text = "Ron"
 horizontal_alignment = 1
+
+[node name="FightHearts" parent="MarginContainer/VBoxContainer" unique_id=829059702 instance=ExtResource("2_jukqt")]
+layout_mode = 2
 
 [node name="Control" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=1101265458]
 custom_minimum_size = Vector2(0, 40)

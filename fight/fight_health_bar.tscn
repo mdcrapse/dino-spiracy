@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://c4yaj1wcsayh8"]
+
+[ext_resource type="Script" uid="uid://bjfr02552ujyj" path="res://fight/fight_heart_bar.gd" id="1_yv6fc"]
+[ext_resource type="PackedScene" uid="uid://c3t4fpxdbe10u" path="res://fight/fight_heart.tscn" id="2_4q0j0"]
+
+[node name="FightHealthBar" type="PanelContainer" unique_id=829059702]
+offset_right = 10.0
+offset_bottom = 10.0
+script = ExtResource("1_yv6fc")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=308330865]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=271162354]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 8
+
+[node name="FightHeart" parent="MarginContainer/HBoxContainer" unique_id=2003264455 instance=ExtResource("2_4q0j0")]
+layout_mode = 2
+
+[node name="FightHeart2" parent="MarginContainer/HBoxContainer" unique_id=1061022417 instance=ExtResource("2_4q0j0")]
+layout_mode = 2
+
+[node name="FightHeart3" parent="MarginContainer/HBoxContainer" unique_id=1966954052 instance=ExtResource("2_4q0j0")]
+layout_mode = 2
+
+[node name="FightHeart4" parent="MarginContainer/HBoxContainer" unique_id=627986463 instance=ExtResource("2_4q0j0")]
+layout_mode = 2
+
+[node name="FightHeart5" parent="MarginContainer/HBoxContainer" unique_id=2064052398 instance=ExtResource("2_4q0j0")]
+layout_mode = 2

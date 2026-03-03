@@ -43,7 +43,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.07762883, 0.07762881, 0.07762881, 1)
 
 [node name="SafeMargin" type="MarginContainer" parent="." unique_id=889033247]
 layout_mode = 1
@@ -110,10 +109,10 @@ grow_vertical = 0
 [node name="LabelName" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="0" unique_id=1480109219]
 text = "Syd"
 
-[node name="TextureRect" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="2" unique_id=1401735072]
+[node name="TextureRect" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="3" unique_id=1401735072]
 texture = ExtResource("6_b28lu")
 
-[node name="FightChoice" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="3" unique_id=638742582]
+[node name="FightChoice" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="4" unique_id=638742582]
 character = "syd"
 
 [node name="RonFightPanel" parent="SafeMargin/Control" unique_id=699665179 instance=ExtResource("1_wldmm")]
@@ -131,7 +130,7 @@ offset_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="TextureRect" parent="SafeMargin/Control/RonFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(699665179, 190746529) index="2" unique_id=1401735072]
+[node name="TextureRect" parent="SafeMargin/Control/RonFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(699665179, 190746529) index="3" unique_id=1401735072]
 texture = ExtResource("7_akaej")
 flip_h = true
 
