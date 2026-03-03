@@ -7,3 +7,8 @@ func _ready():
 		Game.dialogue(preload("res://dialogue/day2/talk6_tv.dialogue"), "start")
 		
 	Game.day -= 1
+	
+	DialogueManager.dialogue_ended.connect(dialogue_ended)
+
+func dialogue_ended(d: DialogueResource):
+	Game.goto_stage(load("res://stage/inn.tscn"))

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cl3xv0nfj0uiq"]
+
+[ext_resource type="PackedScene" uid="uid://g7u312lkxeg3" path="res://stage/stage.tscn" id="1_ofvb6"]
+
+[node name="Lake" unique_id=1735913056 instance=ExtResource("1_ofvb6")]

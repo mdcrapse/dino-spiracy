@@ -18,7 +18,14 @@ outline_color = Color(0, 0, 0, 1)
 shadow_color = Color(0.53333336, 0.53333336, 0.53333336, 1)
 shadow_offset = Vector2(4, 4)
 
-[node name="Fight" type="Control" unique_id=829026029]
+[sub_resource type="LabelSettings" id="LabelSettings_b28lu"]
+font_size = 64
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0.53333336, 0.53333336, 0.53333336, 1)
+shadow_offset = Vector2(4, 4)
+
+[node name="Fight" type="Control" unique_id=829026029 groups=["dialogue_balloon"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,6 +42,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.07762883, 0.07762881, 0.07762881, 1)
 
 [node name="SafeMargin" type="MarginContainer" parent="." unique_id=889033247]
 layout_mode = 1
@@ -99,18 +107,18 @@ grow_vertical = 0
 [node name="LabelName" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="0" unique_id=1480109219]
 text = "Syd"
 
-[node name="TextureRect" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="1" unique_id=1401735072]
+[node name="TextureRect" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="2" unique_id=1401735072]
 texture = ExtResource("3_yw3gg")
 flip_h = true
 
-[node name="FightChoice" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="2" unique_id=638742582]
+[node name="FightChoice" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="3" unique_id=638742582]
 character = "syd"
 
 [node name="ChoiceUp" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer/FightChoice" index="0" unique_id=1344888400]
 text = "Headbutt"
 
 [node name="ChoiceLeft" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer/FightChoice/HBoxContainer" parent_id_path=PackedInt32Array(1457763849, 638742582, 1105597768) index="0" unique_id=261060877]
-text = "Punch"
+text = "Rest"
 
 [node name="ChoiceRight" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer/FightChoice/HBoxContainer" parent_id_path=PackedInt32Array(1457763849, 638742582, 1105597768) index="2" unique_id=44214737]
 text = "Chomp"
@@ -144,8 +152,75 @@ text = "Berate"
 [node name="ChoiceDown" parent="SafeMargin/Control/RonFightPanel/MarginContainer/VBoxContainer/FightChoice" parent_id_path=PackedInt32Array(699665179, 638742582) index="2" unique_id=1623022244]
 text = "Headlock"
 
+[node name="PanelContainer" type="PanelContainer" parent="SafeMargin/Control" unique_id=237855252]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -77.0
+offset_right = 250.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Control" type="Control" parent="SafeMargin/Control/PanelContainer" unique_id=1144980067]
+layout_mode = 2
+
+[node name="BossHP" type="ColorRect" parent="SafeMargin/Control/PanelContainer/Control" unique_id=1962555204]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.13333334, 0, 1)
+
+[node name="Timer" type="Timer" parent="." unique_id=342313862]
+wait_time = 3.0
+autostart = true
+
+[node name="Transition" type="ColorRect" parent="." unique_id=1112746814]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="GameOver" type="Label" parent="Transition" unique_id=586764409]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVA"
+label_settings = SubResource("LabelSettings_b28lu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KO" type="Label" parent="Transition" unique_id=1430636572]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "KO!!!"
+label_settings = SubResource("LabelSettings_b28lu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="chose" from="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer/FightChoice" to="." method="_on_syd_fight_choice_chose"]
 [connection signal="chose" from="SafeMargin/Control/RonFightPanel/MarginContainer/VBoxContainer/FightChoice" to="." method="_on_ron_fight_choice_chose"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="SafeMargin/Control/SydFightPanel"]
 [editable path="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer/FightChoice"]
