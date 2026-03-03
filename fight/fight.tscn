@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://dy3g6jyu4gj1e" path="res://fight/player_fight_panel.tscn" id="1_wldmm"]
 [ext_resource type="Script" uid="uid://dfqe8iesd6hcn" path="res://fight/fight.gd" id="2_b28lu"]
 [ext_resource type="Texture2D" uid="uid://rm6nq8q5klqi" path="res://character/bar_ruffians.png" id="3_b28lu"]
-[ext_resource type="Texture2D" uid="uid://1rhplhwd8a1o" path="res://character/weirdo_speak.png" id="3_yw3gg"]
 [ext_resource type="PackedScene" uid="uid://cf3kp0quoxsfk" path="res://fight/fight_log.tscn" id="4_akaej"]
+[ext_resource type="Texture2D" uid="uid://cxhiv2xr8kt64" path="res://character/ron_normal.png" id="6_b28lu"]
+[ext_resource type="Texture2D" uid="uid://dhegfyx8fh3dw" path="res://character/syd_normal.png" id="7_akaej"]
 
 [sub_resource type="Theme" id="Theme_yw3gg"]
 default_font = ExtResource("1_uf30w")
@@ -74,6 +75,7 @@ label_settings = SubResource("LabelSettings_1ybsv")
 horizontal_alignment = 1
 
 [node name="Enemy" type="TextureRect" parent="SafeMargin/Control/VBoxContainer" unique_id=482056038]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("3_b28lu")
@@ -95,6 +97,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="SydFightPanel" parent="SafeMargin/Control" unique_id=1457763849 instance=ExtResource("1_wldmm")]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -108,25 +111,13 @@ grow_vertical = 0
 text = "Syd"
 
 [node name="TextureRect" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="2" unique_id=1401735072]
-texture = ExtResource("3_yw3gg")
-flip_h = true
+texture = ExtResource("6_b28lu")
 
 [node name="FightChoice" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="3" unique_id=638742582]
 character = "syd"
 
-[node name="ChoiceUp" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer/FightChoice" index="0" unique_id=1344888400]
-text = "Headbutt"
-
-[node name="ChoiceLeft" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer/FightChoice/HBoxContainer" parent_id_path=PackedInt32Array(1457763849, 638742582, 1105597768) index="0" unique_id=261060877]
-text = "Rest"
-
-[node name="ChoiceRight" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer/FightChoice/HBoxContainer" parent_id_path=PackedInt32Array(1457763849, 638742582, 1105597768) index="2" unique_id=44214737]
-text = "Chomp"
-
-[node name="ChoiceDown" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer/FightChoice" index="2" unique_id=1623022244]
-text = "Toss Ron"
-
 [node name="RonFightPanel" parent="SafeMargin/Control" unique_id=699665179 instance=ExtResource("1_wldmm")]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -140,17 +131,9 @@ offset_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="ChoiceUp" parent="SafeMargin/Control/RonFightPanel/MarginContainer/VBoxContainer/FightChoice" parent_id_path=PackedInt32Array(699665179, 638742582) index="0" unique_id=1344888400]
-text = "Scratch"
-
-[node name="ChoiceLeft" parent="SafeMargin/Control/RonFightPanel/MarginContainer/VBoxContainer/FightChoice/HBoxContainer" parent_id_path=PackedInt32Array(699665179, 638742582, 1105597768) index="0" unique_id=261060877]
-text = "Rest"
-
-[node name="ChoiceRight" parent="SafeMargin/Control/RonFightPanel/MarginContainer/VBoxContainer/FightChoice/HBoxContainer" parent_id_path=PackedInt32Array(699665179, 638742582, 1105597768) index="2" unique_id=44214737]
-text = "Berate"
-
-[node name="ChoiceDown" parent="SafeMargin/Control/RonFightPanel/MarginContainer/VBoxContainer/FightChoice" parent_id_path=PackedInt32Array(699665179, 638742582) index="2" unique_id=1623022244]
-text = "Headlock"
+[node name="TextureRect" parent="SafeMargin/Control/RonFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(699665179, 190746529) index="2" unique_id=1401735072]
+texture = ExtResource("7_akaej")
+flip_h = true
 
 [node name="PanelContainer" type="PanelContainer" parent="SafeMargin/Control" unique_id=237855252]
 custom_minimum_size = Vector2(500, 0)
@@ -185,6 +168,7 @@ wait_time = 3.0
 autostart = true
 
 [node name="Transition" type="ColorRect" parent="." unique_id=1112746814]
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -223,6 +207,4 @@ vertical_alignment = 1
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="SafeMargin/Control/SydFightPanel"]
-[editable path="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer/FightChoice"]
 [editable path="SafeMargin/Control/RonFightPanel"]
-[editable path="SafeMargin/Control/RonFightPanel/MarginContainer/VBoxContainer/FightChoice"]

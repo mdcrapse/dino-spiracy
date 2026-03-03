@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://dy3g6jyu4gj1e"]
 
 [ext_resource type="Texture2D" uid="uid://dmipnvwoid0im" path="res://character/weirdo_normal.png" id="1_kuj55"]
+[ext_resource type="Script" uid="uid://brdswjme4nvhv" path="res://fight/player_fight_panel.gd" id="1_ughcd"]
 [ext_resource type="PackedScene" uid="uid://dsr8byiy6n1n3" path="res://fight/fight_choice.tscn" id="2_ughcd"]
 
 [node name="PlayerFightPanel" type="PanelContainer" unique_id=699665179]
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_ughcd")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=663966016]
 layout_mode = 2
@@ -38,10 +40,12 @@ grow_vertical = 2
 color = Color(0, 0.8627451, 0.22352941, 1)
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1401735072]
+visible = false
 layout_mode = 2
 texture = ExtResource("1_kuj55")
 expand_mode = 4
 stretch_mode = 6
 
 [node name="FightChoice" parent="MarginContainer/VBoxContainer" unique_id=638742582 instance=ExtResource("2_ughcd")]
+unique_name_in_owner = true
 layout_mode = 2
