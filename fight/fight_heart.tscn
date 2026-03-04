@@ -1,6 +1,43 @@
 [gd_scene format=3 uid="uid://c3t4fpxdbe10u"]
 
 [ext_resource type="Texture2D" uid="uid://w7u53tvyxsj1" path="res://character/barkeep_normal.png" id="1_8lgqf"]
+[ext_resource type="Script" uid="uid://dl3al5rvgoy28" path="res://fight/fight_heart.gd" id="2_vsg7g"]
+
+[sub_resource type="Animation" id="Animation_vsg7g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_miwab"]
+resource_name = "activate"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jjp24"]
+_data = {
+&"RESET": SubResource("Animation_vsg7g"),
+&"activate": SubResource("Animation_miwab")
+}
 
 [node name="FightHeart" type="TextureRect" unique_id=2003264455]
 custom_minimum_size = Vector2(48, 48)
@@ -8,3 +45,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_8lgqf")
 expand_mode = 1
+script = ExtResource("2_vsg7g")
+
+[node name="Anim" type="AnimationPlayer" parent="." unique_id=366449082]
+libraries/ = SubResource("AnimationLibrary_jjp24")

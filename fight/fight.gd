@@ -21,7 +21,9 @@ var transitioning: bool = false
 @onready var ron_panel := %RonFightPanel
 @onready var ron_choices: FightChoice = ron_panel.choices
 
-signal heart_anim_done()
+@onready var ron := $Ron
+@onready var syd := $Syd
+@onready var all := [ron, syd]
 
 func _ready():
 	syd_choices.show_choice(0, "Chomp", "Basic Attack\nDeals one heart of damage.", "Chomper")
@@ -33,9 +35,9 @@ func _ready():
 	ron_choices.show_choice(1, "Digitigrade Jab", "Special Attack\nEvery action used is replaced with a rest action.", "Special")
 	ron_choices.show_choice(2, "Chomp", "Basic Attack\nDeals one heart of damage.", "Chomper")
 	ron_choices.show_choice(3, "Chomp", "Basic Attack\nDeals one heart of damage.", "Chomper")
-
-func anim_heart_activate(idx: int) -> Signal:
-	return heart_anim_done
+	
+	await ron.play_turn(all, ron_panel.healthbar)
+	await syd.play_turn(all, syd_panel.healthbar)
 
 #func _ready():
 	#transition.modulate = Color.WHITE

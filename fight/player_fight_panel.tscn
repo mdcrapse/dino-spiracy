@@ -25,7 +25,8 @@ layout_mode = 2
 text = "Ron"
 horizontal_alignment = 1
 
-[node name="FightHearts" parent="MarginContainer/VBoxContainer" unique_id=829059702 instance=ExtResource("2_jukqt")]
+[node name="FightHealthBar" parent="MarginContainer/VBoxContainer" unique_id=829059702 instance=ExtResource("2_jukqt")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Control" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=1101265458]

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cf3kp0quoxsfk" path="res://fight/fight_log.tscn" id="4_akaej"]
 [ext_resource type="Texture2D" uid="uid://cxhiv2xr8kt64" path="res://character/syd_normal.png" id="6_b28lu"]
 [ext_resource type="Texture2D" uid="uid://dhegfyx8fh3dw" path="res://character/ron_normal.png" id="7_akaej"]
+[ext_resource type="PackedScene" uid="uid://bbj6n3k18yr8x" path="res://fight/fighter.tscn" id="8_7xocg"]
 
 [sub_resource type="Theme" id="Theme_yw3gg"]
 default_font = ExtResource("1_uf30w")
@@ -200,6 +201,12 @@ text = "KO!!!"
 label_settings = SubResource("LabelSettings_b28lu")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Ron" parent="." unique_id=1499921066 instance=ExtResource("8_7xocg")]
+max_hearts = null
+
+[node name="Syd" parent="." unique_id=1104764886 instance=ExtResource("8_7xocg")]
+max_hearts = null
 
 [connection signal="chose" from="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer/FightChoice" to="." method="_on_syd_fight_choice_chose"]
 [connection signal="chose" from="SafeMargin/Control/RonFightPanel/MarginContainer/VBoxContainer/FightChoice" to="." method="_on_ron_fight_choice_chose"]

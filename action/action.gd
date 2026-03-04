@@ -31,6 +31,14 @@ func on_exit_dino(dino, all: Array):
 #func on_turn_end(dino, all: Array):
 	#pass
 
+## Returns `true` if `on_action_used` will react to the action being used.
+func reacts_on_action_used(dino, all: Array, action: Action) -> bool:
+	return false
+
+## The reaction that occurs when `reacts_on_action_used` returns `true`.
+func on_action_used(dino, all: Array, action: Action, action_idx: int):
+	pass
+
 func on_other_enter_dino(dino, all: Array, other: Action):
 	pass
 
