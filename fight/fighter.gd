@@ -6,21 +6,25 @@ const FightChoices := preload("res://fight/fight_choice.gd")
 
 ## The four possible actions for the fighter.
 ## Should never be anything other than four in size.
-var actions: Array[Action] = [Actions.digitigrade_jab, Actions.digitigrade_jab, Actions.rest, Actions.rest]
-var stored_actions: Array[Action] = []
+var actions: Array[Action] = [Actions.rest, Actions.digitigrade_jab, Actions.rest, Actions.rest]
+var stored_actions: Array[Action] = [Actions.digitigrade_jab, Actions.rest]
 
 var hearts: Array[Action] = [] #[Actions.digitigrade_jab, Actions.digitigrade_jab, Actions.rest, Actions.rest]
 var status: Array[Action] = []
 
 var healthbar
 
+signal died()
 signal hurt()
+signal actions_modified(dino)
 
-func update_choices(choices: FightChoices):
-	var idx := 0
-	for action in actions:
-		choices.show_action(idx, action)
-		idx += 1
+func _ready():
+	hurt.connect(on_hurt)
+
+func on_hurt():
+	if hearts.size() >= max_hearts:
+		died.emit()
+		hearts.resize(max_hearts)
 
 ## Plays the fighter's turn given all the fighters.
 func play_turn(all: Array, fight):
@@ -41,12 +45,13 @@ func action_phase(all: Array, fight):
 	var idx: int = meta.idx
 	var action: Action = meta.action
 	
-	var target = all[0] if all[0] != self else all[1]
+	var target
+	if self == all[2]:
+		target = [all[0], all[1]].pick_random()
+	else:
+		target = all[2]
 	
-	if action.type == Action.Type.INSTANT:
-		action.on_instant_use(self, all)
-	elif not action.is_status():
-		await target.attack(action, all)
+	await use_action(idx, target, all)
 
 func end_phase(all: Array):
 	var i := 0
@@ -60,12 +65,23 @@ func attack(action: Action, all: Array):
 	hurt.emit()
 	hearts.append(action)
 	var i := hearts.size()-1
-	await healthbar.hearts[i].anim_attack(action)
+	await healthbar.anim_attack(i, action)
 	if action.activates_on_enter_dino():
 		await anim_heart(i)
 		action.on_enter_dino(self, all)
 
+func use_action(idx: int, target, all: Array):
+	var action: Action = actions[idx]
+	actions[idx] = stored_actions.pick_random()
+	
+	if action.is_instant():
+		action.on_instant_use(self, all)
+	elif not action.is_status():
+		await target.attack(action, all)
+	
+	actions_modified.emit(self)
+
 func anim_heart(i: int) -> Signal:
-	return healthbar.hearts[i].anim_activate()
+	return healthbar.anim_activate(i)
 
 #func apply_on_action_used(all: Array):

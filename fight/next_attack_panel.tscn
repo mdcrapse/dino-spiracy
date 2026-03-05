@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://dpistlcxr5hv0"]
+
+[ext_resource type="Script" uid="uid://bmvtiulkt4iws" path="res://fight/next_attack_panel.gd" id="1_ghyfc"]
+[ext_resource type="Texture2D" uid="uid://cj82mqacx870f" path="res://action/digitigrade_jab.png" id="2_n0wsx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0cvpa"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4wrhi"]
+font_size = 32
+font_color = Color(1, 0, 0.3372549, 1)
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_snc0l"]
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_n0wsx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ghyfc"]
+resource_name = "change"
+step = 0.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"update_incoming"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n0wsx"]
+_data = {
+&"RESET": SubResource("Animation_n0wsx"),
+&"change": SubResource("Animation_ghyfc")
+}
+
+[node name="NextAttackPanel" type="PanelContainer" unique_id=1310459046]
+custom_minimum_size = Vector2(282, 166)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -322.0
+offset_bottom = 166.0
+grow_horizontal = 0
+script = ExtResource("1_ghyfc")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=969186781]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="EnemyInfoPanel" type="VBoxContainer" parent="MarginContainer" unique_id=819750324]
+layout_mode = 2
+
+[node name="AttackingLabel" type="Label" parent="MarginContainer/EnemyInfoPanel" unique_id=1474702161]
+layout_mode = 2
+text = "Incoming attack..."
+label_settings = SubResource("LabelSettings_0cvpa")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/EnemyInfoPanel" unique_id=1248291414]
+layout_mode = 2
+
+[node name="ActionTexture" type="TextureRect" parent="MarginContainer/EnemyInfoPanel/HBoxContainer" unique_id=2089613618]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("2_n0wsx")
+expand_mode = 1
+
+[node name="ActionLabel" type="Label" parent="MarginContainer/EnemyInfoPanel/HBoxContainer" unique_id=579781217]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Digitigrade Jab"
+label_settings = SubResource("LabelSettings_4wrhi")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="DescLabel" type="Label" parent="MarginContainer/EnemyInfoPanel" unique_id=1274025247]
+unique_name_in_owner = true
+layout_mode = 2
+text = "* Basic Attack
+Deals one heart of damage
+"
+label_settings = SubResource("LabelSettings_snc0l")
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=974610405]
+libraries/ = SubResource("AnimationLibrary_n0wsx")

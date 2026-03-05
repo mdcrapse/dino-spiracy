@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cf3kp0quoxsfk" path="res://fight/fight_log.tscn" id="4_akaej"]
 [ext_resource type="Texture2D" uid="uid://cxhiv2xr8kt64" path="res://character/syd_normal.png" id="6_b28lu"]
 [ext_resource type="Texture2D" uid="uid://dhegfyx8fh3dw" path="res://character/ron_normal.png" id="7_akaej"]
+[ext_resource type="PackedScene" uid="uid://c4yaj1wcsayh8" path="res://fight/fight_health_bar.tscn" id="8_0cvpa"]
+[ext_resource type="PackedScene" uid="uid://dpistlcxr5hv0" path="res://fight/next_attack_panel.tscn" id="8_4wrhi"]
 [ext_resource type="PackedScene" uid="uid://bbj6n3k18yr8x" path="res://fight/fighter.tscn" id="8_7xocg"]
 
 [sub_resource type="Theme" id="Theme_yw3gg"]
@@ -67,9 +69,18 @@ text = "Bar Ruffians"
 label_settings = SubResource("LabelSettings_1ybsv")
 horizontal_alignment = 1
 
-[node name="Enemy" type="TextureRect" parent="SafeMargin/Control/VBoxContainer" unique_id=482056038]
-visible = false
+[node name="Control" type="Control" parent="SafeMargin/Control/VBoxContainer" unique_id=553861834]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EnemyPortrait" type="TextureRect" parent="SafeMargin/Control/VBoxContainer/Control" unique_id=482056038]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
 texture = ExtResource("3_b28lu")
 expand_mode = 1
@@ -127,12 +138,42 @@ grow_vertical = 0
 texture = ExtResource("7_akaej")
 flip_h = true
 
+[node name="NextAttackPanel" parent="SafeMargin/Control" unique_id=1310459046 instance=ExtResource("8_4wrhi")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 166)
+layout_mode = 1
+offset_left = -317.0
+
+[node name="EnemyHealthBar" parent="SafeMargin/Control" unique_id=829059702 instance=ExtResource("8_0cvpa")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.99997
+offset_top = -119.0
+offset_right = 141.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0)
+
 [node name="Ron" parent="." unique_id=1499921066 instance=ExtResource("8_7xocg")]
 
 [node name="Syd" parent="." unique_id=1104764886 instance=ExtResource("8_7xocg")]
 
+[node name="Enemy" parent="." unique_id=1789430734 instance=ExtResource("8_7xocg")]
+max_hearts = 10
+
+[connection signal="actions_modified" from="Ron" to="." method="_on_ron_actions_modified"]
 [connection signal="hurt" from="Ron" to="." method="_on_ron_hurt"]
+[connection signal="actions_modified" from="Syd" to="." method="_on_syd_actions_modified"]
 [connection signal="hurt" from="Syd" to="." method="_on_syd_hurt"]
+[connection signal="actions_modified" from="Enemy" to="." method="_on_enemy_actions_modified"]
+[connection signal="hurt" from="Enemy" to="." method="_on_enemy_hurt"]
 
 [editable path="SafeMargin/Control/SydFightPanel"]
 [editable path="SafeMargin/Control/RonFightPanel"]

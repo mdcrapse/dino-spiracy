@@ -1,40 +1,80 @@
 [gd_scene format=3 uid="uid://dsr8byiy6n1n3"]
 
 [ext_resource type="Script" uid="uid://wpf2fibii8en" path="res://fight/fight_choice.gd" id="1_2c0n5"]
+[ext_resource type="Texture2D" uid="uid://cj82mqacx870f" path="res://action/digitigrade_jab.png" id="2_k430s"]
 
 [node name="FightChoice" type="VBoxContainer" unique_id=638742582]
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_2c0n5")
 
-[node name="ChoiceUp" type="Label" parent="." unique_id=1344888400]
+[node name="FightOptionUp" type="HBoxContainer" parent="." unique_id=1431558107]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Txtr" type="TextureRect" parent="FightOptionUp" unique_id=1803264269]
+custom_minimum_size = Vector2(46, 46)
+layout_mode = 2
+texture = ExtResource("2_k430s")
+expand_mode = 1
+
+[node name="ChoiceUp" type="Label" parent="FightOptionUp" unique_id=1344888400]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Up"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1105597768]
 layout_mode = 2
 
-[node name="ChoiceLeft" type="Label" parent="HBoxContainer" unique_id=261060877]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(140, 0)
+[node name="FightOptionLeft" type="HBoxContainer" parent="HBoxContainer" unique_id=106691447]
 layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Txtr" type="TextureRect" parent="HBoxContainer/FightOptionLeft" unique_id=912532636]
+custom_minimum_size = Vector2(46, 46)
+layout_mode = 2
+texture = ExtResource("2_k430s")
+expand_mode = 1
+
+[node name="ChoiceLeft" type="Label" parent="HBoxContainer/FightOptionLeft" unique_id=261060877]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
 text = "Left"
-horizontal_alignment = 2
 
 [node name="ColorRect" type="ColorRect" parent="HBoxContainer" unique_id=1857655306]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 color = Color(0, 0, 0, 0)
 
-[node name="ChoiceRight" type="Label" parent="HBoxContainer" unique_id=44214737]
+[node name="FightOptionRight" type="HBoxContainer" parent="HBoxContainer" unique_id=988455287]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Txtr" type="TextureRect" parent="HBoxContainer/FightOptionRight" unique_id=1481092178]
+custom_minimum_size = Vector2(46, 46)
+layout_mode = 2
+texture = ExtResource("2_k430s")
+expand_mode = 1
+
+[node name="ChoiceRight" type="Label" parent="HBoxContainer/FightOptionRight" unique_id=44214737]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 text = "Right"
 
-[node name="ChoiceDown" type="Label" parent="." unique_id=1623022244]
+[node name="FightOptionDown" type="HBoxContainer" parent="." unique_id=18551226]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Txtr" type="TextureRect" parent="FightOptionDown" unique_id=739042496]
+custom_minimum_size = Vector2(46, 46)
+layout_mode = 2
+texture = ExtResource("2_k430s")
+expand_mode = 1
+
+[node name="ChoiceDown" type="Label" parent="FightOptionDown" unique_id=1623022244]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Down"

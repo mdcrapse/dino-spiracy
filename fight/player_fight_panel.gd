@@ -1,7 +1,7 @@
 extends Control
 
 const FightChoice := preload("res://fight/fight_choice.gd")
-const HURT_RANGE: float = 5.0
+const HURT_RANGE: float = 10.0
 
 var hurt_anim: float = 0.0
 var time: float = 0.0
@@ -15,4 +15,5 @@ func anim_hurt():
 
 func _process(delta):
 	hurt_anim = max(hurt_anim - delta, 0)
+	panel.modulate = Color.WHITE - Color(0, 1, 1) * hurt_anim
 	panel.position.x = hurt_anim * HURT_RANGE * sin(hurt_anim * PI * 16)
