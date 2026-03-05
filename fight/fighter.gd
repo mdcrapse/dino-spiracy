@@ -56,8 +56,10 @@ func end_phase(all: Array):
 
 func attack(action: Action, all: Array):
 	hearts.append(action)
+	var i := hearts.size()-1
+	await healthbar.hearts[i].anim_attack(action)
 	if action.activates_on_enter_dino():
-		await anim_heart(hearts.size()-1)
+		await anim_heart(i)
 		action.on_enter_dino(self, all)
 
 func anim_heart(i: int) -> Signal:

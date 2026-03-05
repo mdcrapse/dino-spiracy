@@ -16,7 +16,7 @@ class DigitigradeJab extends Action:
 		name = "Digitigrade Jab"
 		type = ActionType.SPECIAL
 		desc = "Every action used is replaced with a rest action."
-		texture = preload("res://character/fisherman_normal.png")
+		texture = preload("res://action/digitigrade_jab.png")
 	
 	func on_turn_start(dino, all: Array):
 		print("on turn start!")

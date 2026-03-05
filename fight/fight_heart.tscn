@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://c3t4fpxdbe10u"]
 
-[ext_resource type="Texture2D" uid="uid://w7u53tvyxsj1" path="res://character/barkeep_normal.png" id="1_8lgqf"]
+[ext_resource type="Texture2D" uid="uid://cscq5mawtf43j" path="res://action/full_heart.svg" id="1_vsg7g"]
 [ext_resource type="Script" uid="uid://dl3al5rvgoy28" path="res://fight/fight_heart.gd" id="2_vsg7g"]
+[ext_resource type="Texture2D" uid="uid://b3pldd1va8smd" path="res://action/heart_reaction.svg" id="3_miwab"]
 
 [sub_resource type="Animation" id="Animation_vsg7g"]
 length = 0.001
@@ -20,20 +21,32 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:custom_minimum_size")
+tracks/1/path = NodePath("CenterContainer/Outline:custom_minimum_size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(48, 48)]
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer/Outline:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_miwab"]
 resource_name = "activate"
 length = 2.0
-step = 1.0
+step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -46,31 +59,43 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
 }
-tracks/1/type = "value"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:custom_minimum_size")
+tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(64, 64), Vector2(48, 48)]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0.96666664),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"activate"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer/Outline:custom_minimum_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(128, 128), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CenterContainer/Outline:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jjp24"]
@@ -79,26 +104,101 @@ _data = {
 &"activate": SubResource("Animation_miwab")
 }
 
+[sub_resource type="Animation" id="Animation_jjp24"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/HeartLoss:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.53333336, 0.53333336, 0.53333336, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterContainer/HeartLoss:custom_minimum_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mk5ac"]
+resource_name = "lose_heart"
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/HeartLoss:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.53333336, 0.53333336, 0.53333336, 1), Color(0.53333336, 0.53333336, 0.53333336, 1), Color(0.53333336, 0.53333336, 0.53333336, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterContainer/HeartLoss:custom_minimum_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(48, 48), Vector2(128, 128)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4pwtb"]
+_data = {
+&"RESET": SubResource("Animation_jjp24"),
+&"lose_heart": SubResource("Animation_mk5ac")
+}
+
 [node name="FightHeart" type="TextureRect" unique_id=2003264455]
 z_index = 5
+texture_filter = 2
 custom_minimum_size = Vector2(48, 48)
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_8lgqf")
+texture = ExtResource("1_vsg7g")
 expand_mode = 1
 script = ExtResource("2_vsg7g")
 
 [node name="Anim" type="AnimationPlayer" parent="." unique_id=366449082]
 libraries/ = SubResource("AnimationLibrary_jjp24")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=214667384]
-z_index = -1
-custom_minimum_size = Vector2(48, 48)
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2060557902]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Outline" type="TextureRect" parent="CenterContainer" unique_id=1763119107]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("3_miwab")
+expand_mode = 1
+
+[node name="HeartLoss" type="TextureRect" parent="CenterContainer" unique_id=1051956231]
+modulate = Color(0.53333336, 0.53333336, 0.53333336, 1)
+z_index = -1
+layout_mode = 2
+texture = ExtResource("1_vsg7g")
+expand_mode = 1
+
+[node name="Anim" type="AnimationPlayer" parent="CenterContainer/HeartLoss" unique_id=2022971424]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_4pwtb")
