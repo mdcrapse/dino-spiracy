@@ -14,6 +14,8 @@ var status: Array[Action] = []
 
 var healthbar
 
+signal hurt()
+
 func update_choices(choices: FightChoices):
 	var idx := 0
 	for action in actions:
@@ -55,6 +57,7 @@ func end_phase(all: Array):
 		i += 1
 
 func attack(action: Action, all: Array):
+	hurt.emit()
 	hearts.append(action)
 	var i := hearts.size()-1
 	await healthbar.hearts[i].anim_attack(action)

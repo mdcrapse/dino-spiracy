@@ -33,3 +33,9 @@ func await_character_choice(character: Fighter) -> Signal:
 	else: #elif character == syd:
 		syd_choices.enable()
 		return syd_choices.chose
+
+func _on_ron_hurt():
+	ron_panel.anim_hurt()
+
+func _on_syd_hurt():
+	syd_panel.anim_hurt()

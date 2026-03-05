@@ -95,18 +95,17 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -450.0
-offset_right = 282.0
+offset_top = -368.0
 offset_bottom = 0.0
 grow_vertical = 0
 
-[node name="LabelName" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="0" unique_id=1480109219]
+[node name="LabelName" parent="SafeMargin/Control/SydFightPanel/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="0" unique_id=1480109219]
 text = "Syd"
 
-[node name="TextureRect" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="2" unique_id=1401735072]
+[node name="TextureRect" parent="SafeMargin/Control/SydFightPanel/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="2" unique_id=1401735072]
 texture = ExtResource("6_b28lu")
 
-[node name="FightChoice" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="3" unique_id=638742582]
+[node name="FightChoice" parent="SafeMargin/Control/SydFightPanel/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="3" unique_id=638742582]
 character = "syd"
 
 [node name="RonFightPanel" parent="SafeMargin/Control" unique_id=699665179 instance=ExtResource("1_wldmm")]
@@ -117,20 +116,23 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -282.0
-offset_top = -450.0
+offset_left = -338.0
+offset_top = -368.0
 offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="TextureRect" parent="SafeMargin/Control/RonFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(699665179, 190746529) index="2" unique_id=1401735072]
+[node name="TextureRect" parent="SafeMargin/Control/RonFightPanel/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(699665179, 190746529) index="2" unique_id=1401735072]
 texture = ExtResource("7_akaej")
 flip_h = true
 
 [node name="Ron" parent="." unique_id=1499921066 instance=ExtResource("8_7xocg")]
 
 [node name="Syd" parent="." unique_id=1104764886 instance=ExtResource("8_7xocg")]
+
+[connection signal="hurt" from="Ron" to="." method="_on_ron_hurt"]
+[connection signal="hurt" from="Syd" to="." method="_on_syd_hurt"]
 
 [editable path="SafeMargin/Control/SydFightPanel"]
 [editable path="SafeMargin/Control/RonFightPanel"]

@@ -13,7 +13,7 @@ class Rest extends Action:
 
 class DigitigradeJab extends Action:
 	func _init():
-		name = "Digitigrade Jab"
+		name = "Digitigrade"
 		type = ActionType.SPECIAL
 		desc = "Every action used is replaced with a rest action."
 		texture = preload("res://action/digitigrade_jab.png")
