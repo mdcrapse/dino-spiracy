@@ -12,29 +12,26 @@ var disabled: bool = false
 
 ## The four possible choices.
 @onready var options: Array[FightOption] = [
-	FightOption.new(up, %ChoiceUp, 0),
-	FightOption.new(left, %ChoiceLeft, 1),
-	FightOption.new(right, %ChoiceRight, 2),
-	FightOption.new(down, %ChoiceDown, 3)
+	FightOption.new(up, %Up, 0),
+	FightOption.new(left, %Left, 1),
+	FightOption.new(right, %Right, 2),
+	FightOption.new(down, %Down, 3)
 ]
 
 @onready var desc_label = %DescLabel
+@onready var name_label = %NameLabel
 
 class FightOption:
-	func _init(ia: String, l: Label, i: int):
+	func _init(ia: String, txtr: TextureRect, i: int):
 		input_action = ia
-		label = l
-		text = label.text
+		texture = txtr
 		idx = i
 	
-	var text: String :
-		set(value):
-			text = value
-			label.text = value
+	var text: String
 	var desc: String
 	var input_action: String
 	var focused: bool
-	var label: Label
+	var texture: TextureRect
 	var idx: int
 	var meta: Variant
 
@@ -59,7 +56,7 @@ func disable():
 	desc_label.self_modulate = Color.GRAY
 	
 	for option in options:
-		option.label.self_modulate = Color.GRAY
+		option.texture.self_modulate = Color.GRAY
 		option.focused = false
 		disabled = true
 
@@ -67,30 +64,32 @@ func enable():
 	desc_label.self_modulate = Color.WHITE
 	
 	for option in options:
-		option.label.self_modulate = Color.WHITE
+		option.texture.self_modulate = Color.WHITE
 		disabled = false
 
 func show_action(idx: int, action: Action):
-	var desc := action.type_name() + "\n" + action.desc
+	var desc := "* " + action.type_name() + "\n" + action.desc
 	var meta := {idx = idx, action = action}
-	show_choice(idx, action.name, desc, meta)
+	show_choice(idx, action.texture, action.name, desc, meta)
 
-func show_choice(idx: int, text: String, desc: String, meta: Variant = null):
+func show_choice(idx: int, txtr: Texture2D, text: String, desc: String, meta: Variant = null):
 	if idx >= 0 && idx < options.size():
 		var option := options[idx]
 		option.text = text
-		option.label.text = text
+		option.texture.texture = txtr
 		option.desc = desc
 		option.meta = meta
 
 func focus_option(option: FightOption):
 	unfocus_options()
 	option.focused = true
-	option.label.modulate = Color.RED
+	option.texture.modulate = Color.RED
+	name_label.text = option.text
 	desc_label.text = option.desc
 
 func unfocus_options():
-	desc_label.text = ". . ."
+	name_label.text = ""
+	desc_label.text = ""
 	for option in options:
 		option.focused = false
-		option.label.modulate = Color.WHITE
+		option.texture.modulate = Color.WHITE

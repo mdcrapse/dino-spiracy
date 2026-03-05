@@ -1,15 +1,18 @@
 [gd_scene format=3 uid="uid://dy3g6jyu4gj1e"]
 
 [ext_resource type="Texture2D" uid="uid://dmipnvwoid0im" path="res://character/weirdo_normal.png" id="1_kuj55"]
+[ext_resource type="Theme" uid="uid://djn8x58leu7px" path="res://fight_theme.tres" id="1_rewg2"]
 [ext_resource type="Script" uid="uid://brdswjme4nvhv" path="res://fight/player_fight_panel.gd" id="1_ughcd"]
 [ext_resource type="PackedScene" uid="uid://c4yaj1wcsayh8" path="res://fight/fight_health_bar.tscn" id="2_jukqt"]
 [ext_resource type="PackedScene" uid="uid://dsr8byiy6n1n3" path="res://fight/fight_choice.tscn" id="2_ughcd"]
 
 [node name="PlayerFightPanel" type="Control" unique_id=1120426849]
+custom_minimum_size = Vector2(410, 466)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 338.0
 offset_bottom = 263.0
+theme = ExtResource("1_rewg2")
 script = ExtResource("1_ughcd")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=699665179]

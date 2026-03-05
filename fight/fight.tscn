@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c26oti47hlgyo"]
 
-[ext_resource type="FontFile" uid="uid://3lo4xep25d1r" path="res://font/Roboto/roboto.ttf" id="1_uf30w"]
+[ext_resource type="Theme" uid="uid://djn8x58leu7px" path="res://fight_theme.tres" id="1_4wrhi"]
 [ext_resource type="PackedScene" uid="uid://dy3g6jyu4gj1e" path="res://fight/player_fight_panel.tscn" id="1_wldmm"]
 [ext_resource type="Script" uid="uid://dfqe8iesd6hcn" path="res://fight/fight.gd" id="2_b28lu"]
 [ext_resource type="Texture2D" uid="uid://rm6nq8q5klqi" path="res://character/bar_ruffians.png" id="3_b28lu"]
@@ -10,10 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://c4yaj1wcsayh8" path="res://fight/fight_health_bar.tscn" id="8_0cvpa"]
 [ext_resource type="PackedScene" uid="uid://dpistlcxr5hv0" path="res://fight/next_attack_panel.tscn" id="8_4wrhi"]
 [ext_resource type="PackedScene" uid="uid://bbj6n3k18yr8x" path="res://fight/fighter.tscn" id="8_7xocg"]
-
-[sub_resource type="Theme" id="Theme_yw3gg"]
-default_font = ExtResource("1_uf30w")
-default_font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_1ybsv"]
 font_size = 64
@@ -29,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_yw3gg")
+theme = ExtResource("1_4wrhi")
 script = ExtResource("2_b28lu")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1246247523]
@@ -39,6 +35,42 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1092550393]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Padding" type="Control" parent="VBoxContainer" unique_id=809469966]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=2015694887]
+layout_mode = 2
+text = "Bar Ruffians"
+label_settings = SubResource("LabelSettings_1ybsv")
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="VBoxContainer" unique_id=553861834]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EnemyPortrait" type="TextureRect" parent="VBoxContainer/Control" unique_id=482056038]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture = ExtResource("3_b28lu")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="SafeMargin" type="MarginContainer" parent="." unique_id=889033247]
 layout_mode = 1
@@ -54,37 +86,6 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Control" type="Control" parent="SafeMargin" unique_id=1715687725]
 layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="SafeMargin/Control" unique_id=1092550393]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="SafeMargin/Control/VBoxContainer" unique_id=2015694887]
-layout_mode = 2
-text = "Bar Ruffians"
-label_settings = SubResource("LabelSettings_1ybsv")
-horizontal_alignment = 1
-
-[node name="Control" type="Control" parent="SafeMargin/Control/VBoxContainer" unique_id=553861834]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="EnemyPortrait" type="TextureRect" parent="SafeMargin/Control/VBoxContainer/Control" unique_id=482056038]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-texture = ExtResource("3_b28lu")
-expand_mode = 1
-stretch_mode = 5
 
 [node name="FightLog" parent="SafeMargin/Control" unique_id=1506502631 instance=ExtResource("4_akaej")]
 unique_name_in_owner = true
@@ -107,6 +108,7 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -368.0
+offset_right = 410.0
 offset_bottom = 0.0
 grow_vertical = 0
 

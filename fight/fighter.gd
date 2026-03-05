@@ -6,7 +6,7 @@ const FightChoices := preload("res://fight/fight_choice.gd")
 
 ## The four possible actions for the fighter.
 ## Should never be anything other than four in size.
-var actions: Array[Action] = [Actions.rest, Actions.digitigrade_jab, Actions.rest, Actions.rest]
+var actions: Array[Action] = [Actions.digitigrade_jab, Actions.digitigrade_jab, Actions.digitigrade_jab, Actions.digitigrade_jab]
 var stored_actions: Array[Action] = [Actions.digitigrade_jab, Actions.rest]
 
 var hearts: Array[Action] = [] #[Actions.digitigrade_jab, Actions.digitigrade_jab, Actions.rest, Actions.rest]
@@ -73,13 +73,12 @@ func attack(action: Action, all: Array):
 func use_action(idx: int, target, all: Array):
 	var action: Action = actions[idx]
 	actions[idx] = stored_actions.pick_random()
+	actions_modified.emit(self)
 	
 	if action.is_instant():
 		action.on_instant_use(self, all)
 	elif not action.is_status():
 		await target.attack(action, all)
-	
-	actions_modified.emit(self)
 
 func anim_heart(i: int) -> Signal:
 	return healthbar.anim_activate(i)
