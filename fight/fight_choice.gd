@@ -49,6 +49,11 @@ func _input(event: InputEvent):
 				focus_option(option)
 			break
 
+func show_action(idx: int, action: Action):
+	var desc := action.type_name() + "\n" + action.desc
+	var meta := {idx = idx, action = action}
+	show_choice(idx, action.name, desc, meta)
+
 func show_choice(idx: int, text: String, desc: String, meta: Variant = null):
 	if idx >= 0 && idx < options.size():
 		var option := options[idx]

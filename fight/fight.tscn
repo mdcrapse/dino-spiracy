@@ -135,34 +135,6 @@ grow_vertical = 0
 texture = ExtResource("7_akaej")
 flip_h = true
 
-[node name="PanelContainer" type="PanelContainer" parent="SafeMargin/Control" unique_id=237855252]
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -250.0
-offset_top = -77.0
-offset_right = 250.0
-offset_bottom = -37.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Control" type="Control" parent="SafeMargin/Control/PanelContainer" unique_id=1144980067]
-layout_mode = 2
-
-[node name="BossHP" type="ColorRect" parent="SafeMargin/Control/PanelContainer/Control" unique_id=1962555204]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0.13333334, 0, 1)
-
 [node name="Timer" type="Timer" parent="." unique_id=342313862]
 wait_time = 3.0
 autostart = true
@@ -203,10 +175,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Ron" parent="." unique_id=1499921066 instance=ExtResource("8_7xocg")]
-max_hearts = null
 
 [node name="Syd" parent="." unique_id=1104764886 instance=ExtResource("8_7xocg")]
-max_hearts = null
 
 [connection signal="chose" from="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer/FightChoice" to="." method="_on_syd_fight_choice_chose"]
 [connection signal="chose" from="SafeMargin/Control/RonFightPanel/MarginContainer/VBoxContainer/FightChoice" to="." method="_on_ron_fight_choice_chose"]
