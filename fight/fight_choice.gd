@@ -2,6 +2,8 @@ extends VBoxContainer
 
 @export var character: String = "ron"
 
+var disabled: bool = false
+
 # Input actions
 @onready var up := character + "_jump"
 @onready var left := character + "_move_left"
@@ -39,15 +41,34 @@ class FightOption:
 ## Invoked when a choice has been chosen.
 signal chose(meta: Variant)
 
+func _ready():
+	disable()
+
 func _input(event: InputEvent):
 	for option in options:
 		if event.is_action_pressed(option.input_action):
 			if option.focused:
 				unfocus_options()
+				disable()
 				chose.emit(option.meta)
 			else:
 				focus_option(option)
 			break
+
+func disable():
+	desc_label.self_modulate = Color.GRAY
+	
+	for option in options:
+		option.label.self_modulate = Color.GRAY
+		option.focused = false
+		disabled = true
+
+func enable():
+	desc_label.self_modulate = Color.WHITE
+	
+	for option in options:
+		option.label.self_modulate = Color.WHITE
+		disabled = false
 
 func show_action(idx: int, action: Action):
 	var desc := action.type_name() + "\n" + action.desc

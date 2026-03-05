@@ -24,6 +24,9 @@ class DigitigradeJab extends Action:
 	func on_turn_end(dino, all: Array):
 		print("on turn end!")
 	
+	func on_enter_dino(dino, all: Array):
+		print("entered dino!")
+	
 	#func reacts_on_action_used(dino: Fighter, all: Array, action: Action) -> bool:
 		#return action is not Rest
 	#

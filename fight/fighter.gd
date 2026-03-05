@@ -9,8 +9,10 @@ const FightChoices := preload("res://fight/fight_choice.gd")
 var actions: Array[Action] = [Actions.digitigrade_jab, Actions.digitigrade_jab, Actions.rest, Actions.rest]
 var stored_actions: Array[Action] = []
 
-var hearts: Array[Action] = [Actions.digitigrade_jab, Actions.digitigrade_jab, Actions.rest, Actions.rest]
+var hearts: Array[Action] = [] #[Actions.digitigrade_jab, Actions.digitigrade_jab, Actions.rest, Actions.rest]
 var status: Array[Action] = []
+
+var healthbar
 
 func update_choices(choices: FightChoices):
 	var idx := 0
@@ -19,33 +21,46 @@ func update_choices(choices: FightChoices):
 		idx += 1
 
 ## Plays the fighter's turn given all the fighters.
-func play_turn(all: Array, fight, healthbar):
-	await start_phase(all, healthbar)
-	await action_phase(all, fight, healthbar)
-	await end_phase(all, healthbar)
+func play_turn(all: Array, fight):
+	await start_phase(all)
+	await action_phase(all, fight)
+	await end_phase(all)
 
-func start_phase(all: Array, healthbar):
-	print("starting phase")
+func start_phase(all: Array):
 	var i := 0
 	for action in (hearts + status):
 		if action.activates_on_turn_start():
-			await healthbar.hearts[i].anim_activate()
+			await anim_heart(i)
 			action.on_turn_start(self, all)
 		i += 1
 
-func action_phase(all: Array, fight, healthbar):
-	print("action phase")
+func action_phase(all: Array, fight):
 	var meta = await fight.await_character_choice(self)
-	print(meta)
+	var idx: int = meta.idx
+	var action: Action = meta.action
+	
+	var target = all[0] if all[0] != self else all[1]
+	
+	if action.type == Action.Type.INSTANT:
+		action.on_instant_use(self, all)
+	elif not action.is_status():
+		await target.attack(action, all)
 
-func end_phase(all: Array, healthbar):
-	print("ending phase")
+func end_phase(all: Array):
 	var i := 0
 	for action in (hearts + status):
 		if action.activates_on_turn_end():
-			healthbar.hearts[i].anim.play("activate")
-			await healthbar.hearts[i].anim_activate()
+			await anim_heart(i)
 			action.on_turn_end(self, all)
 		i += 1
+
+func attack(action: Action, all: Array):
+	hearts.append(action)
+	if action.activates_on_enter_dino():
+		await anim_heart(hearts.size()-1)
+		action.on_enter_dino(self, all)
+
+func anim_heart(i: int) -> Signal:
+	return healthbar.hearts[i].anim_activate()
 
 #func apply_on_action_used(all: Array):

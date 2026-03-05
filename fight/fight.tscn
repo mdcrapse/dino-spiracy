@@ -20,13 +20,6 @@ outline_color = Color(0, 0, 0, 1)
 shadow_color = Color(0.53333336, 0.53333336, 0.53333336, 1)
 shadow_offset = Vector2(4, 4)
 
-[sub_resource type="LabelSettings" id="LabelSettings_b28lu"]
-font_size = 64
-outline_size = 8
-outline_color = Color(0, 0, 0, 1)
-shadow_color = Color(0.53333336, 0.53333336, 0.53333336, 1)
-shadow_offset = Vector2(4, 4)
-
 [node name="Fight" type="Control" unique_id=829026029 groups=["dialogue_balloon"]]
 layout_mode = 3
 anchors_preset = 15
@@ -110,10 +103,10 @@ grow_vertical = 0
 [node name="LabelName" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="0" unique_id=1480109219]
 text = "Syd"
 
-[node name="TextureRect" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="3" unique_id=1401735072]
+[node name="TextureRect" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="2" unique_id=1401735072]
 texture = ExtResource("6_b28lu")
 
-[node name="FightChoice" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="4" unique_id=638742582]
+[node name="FightChoice" parent="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="3" unique_id=638742582]
 character = "syd"
 
 [node name="RonFightPanel" parent="SafeMargin/Control" unique_id=699665179 instance=ExtResource("1_wldmm")]
@@ -131,56 +124,13 @@ offset_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="TextureRect" parent="SafeMargin/Control/RonFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(699665179, 190746529) index="3" unique_id=1401735072]
+[node name="TextureRect" parent="SafeMargin/Control/RonFightPanel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(699665179, 190746529) index="2" unique_id=1401735072]
 texture = ExtResource("7_akaej")
 flip_h = true
-
-[node name="Timer" type="Timer" parent="." unique_id=342313862]
-wait_time = 3.0
-autostart = true
-
-[node name="Transition" type="ColorRect" parent="." unique_id=1112746814]
-visible = false
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="GameOver" type="Label" parent="Transition" unique_id=586764409]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "GAME OVA"
-label_settings = SubResource("LabelSettings_b28lu")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="KO" type="Label" parent="Transition" unique_id=1430636572]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "KO!!!"
-label_settings = SubResource("LabelSettings_b28lu")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Ron" parent="." unique_id=1499921066 instance=ExtResource("8_7xocg")]
 
 [node name="Syd" parent="." unique_id=1104764886 instance=ExtResource("8_7xocg")]
-
-[connection signal="chose" from="SafeMargin/Control/SydFightPanel/MarginContainer/VBoxContainer/FightChoice" to="." method="_on_syd_fight_choice_chose"]
-[connection signal="chose" from="SafeMargin/Control/RonFightPanel/MarginContainer/VBoxContainer/FightChoice" to="." method="_on_ron_fight_choice_chose"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="SafeMargin/Control/SydFightPanel"]
 [editable path="SafeMargin/Control/RonFightPanel"]

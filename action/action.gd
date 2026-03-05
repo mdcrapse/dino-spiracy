@@ -17,13 +17,19 @@ func activates_on_turn_start() -> bool:
 func activates_on_turn_end() -> bool:
 	return has_method("on_turn_end")
 
+func activates_on_enter_dino() -> bool:
+	return has_method("on_enter_dino")
+
+func activates_on_exit_dino() -> bool:
+	return has_method("on_exit_dino")
+
 # ========== OVERRIDES ==========
 
-func on_enter_dino(dino, all: Array):
-	pass
+#func on_enter_dino(dino, all: Array):
+	#pass
 
-func on_exit_dino(dino, all: Array):
-	pass
+#func on_exit_dino(dino, all: Array):
+	#pass
 
 #func on_turn_start(dino, all: Array):
 	#pass
@@ -46,7 +52,7 @@ func is_allowed_to_play(dino, all: Array, action: Action) -> bool:
 	return true
 
 ## Only occurs when using an instant card.
-func on_instant_use():
+func on_instant_use(dino, all: Array):
 	pass
 
 ## Returns the display name of the type.

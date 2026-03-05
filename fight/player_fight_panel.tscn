@@ -29,21 +29,6 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Control" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=1101265458]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Health" type="ColorRect" parent="MarginContainer/VBoxContainer/Control" unique_id=1473233527]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0.8627451, 0.22352941, 1)
-
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1401735072]
 visible = false
 layout_mode = 2
