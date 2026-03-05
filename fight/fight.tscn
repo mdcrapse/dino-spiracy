@@ -18,6 +18,96 @@ outline_color = Color(0, 0, 0, 1)
 shadow_color = Color(0.53333336, 0.53333336, 0.53333336, 1)
 shadow_offset = Vector2(4, 4)
 
+[sub_resource type="LabelSettings" id="LabelSettings_4wrhi"]
+font_size = 64
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_snc0l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Overlay/TurnIndicator:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Overlay/TurnIndicator:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.5235988]
+}
+
+[sub_resource type="Animation" id="Animation_dsfgu"]
+resource_name = "indicate_turn"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 0.5019608), Color(0, 0, 0, 0.5019608), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Overlay/TurnIndicator:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(0.5, 2, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Overlay/TurnIndicator:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(0.5, 1, 2),
+"update": 0,
+"values": [-0.5235988, 0.0, 0.5235988]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vdykp"]
+_data = {
+&"RESET": SubResource("Animation_snc0l"),
+&"indicate_turn": SubResource("Animation_dsfgu")
+}
+
 [node name="Fight" type="Control" unique_id=829026029 groups=["dialogue_balloon"]]
 layout_mode = 3
 anchors_preset = 15
@@ -162,6 +252,39 @@ grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1.5, 1.5)
 pivot_offset_ratio = Vector2(0.5, 0)
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=1204225547]
+z_index = 100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="TurnIndicator" type="Label" parent="Overlay" unique_id=817688483]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -38.0
+offset_right = 180.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.5235988
+scale = Vector2(1e-05, 1e-05)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+text = "Player's Turn"
+label_settings = SubResource("LabelSettings_4wrhi")
+
+[node name="Anim" type="AnimationPlayer" parent="." unique_id=1336828662]
+libraries/ = SubResource("AnimationLibrary_vdykp")
 
 [node name="Ron" parent="." unique_id=1499921066 instance=ExtResource("8_7xocg")]
 

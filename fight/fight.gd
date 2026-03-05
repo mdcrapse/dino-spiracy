@@ -6,6 +6,9 @@ const HURT_RANGE: float = 32.0
 
 var enemy_hurt_anim: float = 0.0
 
+@onready var anim = $Anim
+@onready var turn_indicator = %TurnIndicator
+
 @onready var incoming := %NextAttackPanel
 @onready var enemy_portrait = %EnemyPortrait
 @onready var enemy_healthbar = %EnemyHealthBar
@@ -39,14 +42,21 @@ func _ready():
 	incoming.set_action_immediate(enemy.actions[0])
 	
 	while true:
+		await anim_turn_indicator("Player's Turn")
 		await ron.play_turn(all, self)
 		await syd.play_turn(all, self)
+		await anim_turn_indicator("Enemy's Turn")
 		await enemy.play_turn(all, self)
 
 func _process(delta):
 	enemy_hurt_anim = max(enemy_hurt_anim - delta, 0)
 	enemy_portrait.modulate = Color.WHITE - Color(0, 1, 1) * enemy_hurt_anim
 	enemy_portrait.position.x = enemy_hurt_anim * HURT_RANGE * sin(enemy_hurt_anim * PI * 16)
+
+func anim_turn_indicator(team: String) -> Signal:
+	turn_indicator.text = team
+	anim.play("indicate_turn")
+	return anim.animation_finished
 
 func await_character_choice(character: Fighter) -> Signal:
 	if character == ron:
