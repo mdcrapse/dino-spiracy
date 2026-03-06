@@ -12,6 +12,7 @@ var enemy_hurt_anim: float = 0.0
 @onready var incoming := %NextAttackPanel
 @onready var enemy_portrait = %EnemyPortrait
 @onready var enemy_healthbar = %EnemyHealthBar
+@onready var enemy_status_bar = %EnemyStatusBar
 
 @onready var fight_log := %FightLog
 
@@ -29,21 +30,26 @@ var enemy_hurt_anim: float = 0.0
 signal enemy_chose(meta)
 
 func _ready():
+	ron.statusbar = ron_panel.statusbar
 	ron.healthbar = ron_panel.healthbar
 	ron.healthbar.set_max_hearts(ron.max_hearts)
 	update_choices(ron, ron_choices)
 	
+	syd.statusbar = syd_panel.statusbar
 	syd.healthbar = syd_panel.healthbar
 	syd.healthbar.set_max_hearts(syd.max_hearts)
 	update_choices(syd, syd_choices)
 	
+	enemy_status_bar.grid.columns = enemy.max_hearts
+	enemy.statusbar = enemy_status_bar
 	enemy.healthbar = enemy_healthbar
 	enemy.healthbar.set_max_hearts(enemy.max_hearts)
 	incoming.set_action_immediate(enemy.actions[0])
 	
 	while true:
-		await anim_turn_indicator("Player's Turn")
+		await anim_turn_indicator("Ron's Turn")
 		await ron.play_turn(all, self)
+		await anim_turn_indicator("Syd's Turn")
 		await syd.play_turn(all, self)
 		await anim_turn_indicator("Enemy's Turn")
 		await enemy.play_turn(all, self)
@@ -66,7 +72,7 @@ func await_character_choice(character: Fighter) -> Signal:
 		syd_choices.enable()
 		return syd_choices.chose
 	else: #elif character == enemy:
-		get_tree().create_timer(2).timeout.connect(get_enemy_attack)
+		get_tree().create_timer(1).timeout.connect(get_enemy_attack)
 		return enemy_chose
 
 func get_enemy_attack():

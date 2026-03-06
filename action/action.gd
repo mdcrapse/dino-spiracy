@@ -8,6 +8,9 @@ var texture: Texture2D
 func is_status() -> bool:
 	return type == Type.BUFF or type == Type.DEBUFF
 
+func is_debuff() -> bool:
+	return type == Type.DEBUFF
+
 func is_instant() -> bool:
 	return type == Type.INSTANT
 

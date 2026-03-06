@@ -11,6 +11,22 @@ class Rest extends Action:
 		desc = "Replaces action with a new action."
 		texture = preload("res://character/fisherman_normal.png")
 
+class Agile extends Action:
+	func _init():
+		name = "Agile"
+		type = ActionType.BUFF
+		desc = "You may play two actions."
+		texture = preload("res://action/agile.png")
+	
+	func on_turn_start(dino, all: Array):
+		print("STATUS on turn start!")
+	
+	func on_turn_end(dino, all: Array):
+		print("STATUS on turn end!")
+	
+	func on_enter_dino(dino, all: Array):
+		print("STATUS entered dino!")
+
 class DigitigradeJab extends Action:
 	func _init():
 		name = "Digitigrade"
@@ -35,6 +51,7 @@ class DigitigradeJab extends Action:
 
 static var digitigrade_jab := DigitigradeJab.new()
 static var rest := Rest.new()
+static var agile := Agile.new()
 
 # ## Dictionary of all actions in the game.
 #static var cards: Dictionary[String, Action] = {

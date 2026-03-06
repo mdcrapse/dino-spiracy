@@ -23,7 +23,7 @@ alignment = 1
 
 [node name="Left" type="TextureRect" parent="HBoxContainer" unique_id=912532636]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(69, 69)
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 8
 texture = ExtResource("2_k430s")
@@ -36,7 +36,7 @@ size_flags_horizontal = 4
 
 [node name="Up" type="TextureRect" parent="HBoxContainer/VBoxContainer" unique_id=1803264269]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(69, 69)
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = ExtResource("2_k430s")
 expand_mode = 1
@@ -44,7 +44,7 @@ stretch_mode = 5
 
 [node name="Down" type="TextureRect" parent="HBoxContainer/VBoxContainer" unique_id=739042496]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(69, 69)
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = ExtResource("2_k430s")
 expand_mode = 1
@@ -52,7 +52,7 @@ stretch_mode = 5
 
 [node name="Right" type="TextureRect" parent="HBoxContainer" unique_id=1481092178]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(69, 69)
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 size_flags_horizontal = 0
 texture = ExtResource("2_k430s")

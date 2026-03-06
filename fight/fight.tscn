@@ -7,9 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://cf3kp0quoxsfk" path="res://fight/fight_log.tscn" id="4_akaej"]
 [ext_resource type="Texture2D" uid="uid://cxhiv2xr8kt64" path="res://character/syd_normal.png" id="6_b28lu"]
 [ext_resource type="Texture2D" uid="uid://dhegfyx8fh3dw" path="res://character/ron_normal.png" id="7_akaej"]
+[ext_resource type="Texture2D" uid="uid://d0d0hgcypwr3j" path="res://character/syd_surprise.png" id="7_dsfgu"]
 [ext_resource type="PackedScene" uid="uid://c4yaj1wcsayh8" path="res://fight/fight_health_bar.tscn" id="8_0cvpa"]
 [ext_resource type="PackedScene" uid="uid://dpistlcxr5hv0" path="res://fight/next_attack_panel.tscn" id="8_4wrhi"]
 [ext_resource type="PackedScene" uid="uid://bbj6n3k18yr8x" path="res://fight/fighter.tscn" id="8_7xocg"]
+[ext_resource type="PackedScene" uid="uid://llcggx1vjp47" path="res://fight/fight_status_bar.tscn" id="9_snc0l"]
+[ext_resource type="Texture2D" uid="uid://cb1acwi55xc3y" path="res://character/ron_surprise.png" id="9_vdykp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1ybsv"]
 font_size = 64
@@ -198,15 +201,16 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -368.0
-offset_right = 410.0
 offset_bottom = 0.0
 grow_vertical = 0
+normal = ExtResource("6_b28lu")
+hurting = ExtResource("7_dsfgu")
+
+[node name="Portrait" parent="SafeMargin/Control/SydFightPanel" index="0" unique_id=1401735072]
+texture = ExtResource("6_b28lu")
 
 [node name="LabelName" parent="SafeMargin/Control/SydFightPanel/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="0" unique_id=1480109219]
 text = "Syd"
-
-[node name="TextureRect" parent="SafeMargin/Control/SydFightPanel/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="2" unique_id=1401735072]
-texture = ExtResource("6_b28lu")
 
 [node name="FightChoice" parent="SafeMargin/Control/SydFightPanel/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1457763849, 190746529) index="3" unique_id=638742582]
 character = "syd"
@@ -225,8 +229,10 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 0
+normal = ExtResource("7_akaej")
+hurting = ExtResource("9_vdykp")
 
-[node name="TextureRect" parent="SafeMargin/Control/RonFightPanel/PanelContainer/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(699665179, 190746529) index="2" unique_id=1401735072]
+[node name="Portrait" parent="SafeMargin/Control/RonFightPanel" index="0" unique_id=1401735072]
 texture = ExtResource("7_akaej")
 flip_h = true
 
@@ -236,22 +242,26 @@ custom_minimum_size = Vector2(0, 166)
 layout_mode = 1
 offset_left = -317.0
 
-[node name="EnemyHealthBar" parent="SafeMargin/Control" unique_id=829059702 instance=ExtResource("8_0cvpa")]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="SafeMargin/Control" unique_id=1873347125]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -140.99997
-offset_top = -119.0
+offset_left = -141.0
+offset_top = -58.0
 offset_right = 141.0
-offset_bottom = -61.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(1.5, 1.5)
-pivot_offset_ratio = Vector2(0.5, 0)
+
+[node name="EnemyStatusBar" parent="SafeMargin/Control/VBoxContainer" unique_id=288932618 instance=ExtResource("9_snc0l")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EnemyHealthBar" parent="SafeMargin/Control/VBoxContainer" unique_id=829059702 instance=ExtResource("8_0cvpa")]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="Overlay" type="ColorRect" parent="." unique_id=1204225547]
 z_index = 100
@@ -261,6 +271,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
 [node name="TurnIndicator" type="Label" parent="Overlay" unique_id=817688483]

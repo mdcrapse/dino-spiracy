@@ -5,20 +5,44 @@
 [ext_resource type="Script" uid="uid://brdswjme4nvhv" path="res://fight/player_fight_panel.gd" id="1_ughcd"]
 [ext_resource type="PackedScene" uid="uid://c4yaj1wcsayh8" path="res://fight/fight_health_bar.tscn" id="2_jukqt"]
 [ext_resource type="PackedScene" uid="uid://dsr8byiy6n1n3" path="res://fight/fight_choice.tscn" id="2_ughcd"]
+[ext_resource type="PackedScene" uid="uid://llcggx1vjp47" path="res://fight/fight_status_bar.tscn" id="3_rd2me"]
 
 [node name="PlayerFightPanel" type="Control" unique_id=1120426849]
 custom_minimum_size = Vector2(410, 466)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 338.0
-offset_bottom = 263.0
+offset_right = 410.0
+offset_bottom = 466.0
 theme = ExtResource("1_rewg2")
 script = ExtResource("1_ughcd")
 
+[node name="Portrait" type="TextureRect" parent="." unique_id=1401735072]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -214.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_kuj55")
+expand_mode = 1
+stretch_mode = 6
+
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=699665179]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -205.0
+offset_top = -482.0
+offset_right = 205.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=663966016]
 layout_mode = 2
@@ -35,16 +59,13 @@ layout_mode = 2
 text = "Ron"
 horizontal_alignment = 1
 
-[node name="FightHealthBar" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=829059702 instance=ExtResource("2_jukqt")]
+[node name="FightStatusBar" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=288932618 instance=ExtResource("3_rd2me")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1401735072]
-visible = false
+[node name="FightHealthBar" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=829059702 instance=ExtResource("2_jukqt")]
+unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("1_kuj55")
-expand_mode = 4
-stretch_mode = 6
 
 [node name="FightChoice" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=638742582 instance=ExtResource("2_ughcd")]
 unique_name_in_owner = true

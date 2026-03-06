@@ -6,13 +6,14 @@ const FightChoices := preload("res://fight/fight_choice.gd")
 
 ## The four possible actions for the fighter.
 ## Should never be anything other than four in size.
-var actions: Array[Action] = [Actions.digitigrade_jab, Actions.digitigrade_jab, Actions.digitigrade_jab, Actions.digitigrade_jab]
-var stored_actions: Array[Action] = [Actions.digitigrade_jab, Actions.rest]
+var actions: Array[Action] = [Actions.digitigrade_jab, Actions.digitigrade_jab, Actions.rest, Actions.agile]
+var stored_actions: Array[Action] = [Actions.digitigrade_jab, Actions.rest, Actions.agile]
 
 var hearts: Array[Action] = [] #[Actions.digitigrade_jab, Actions.digitigrade_jab, Actions.rest, Actions.rest]
 var status: Array[Action] = []
 
 var healthbar
+var statusbar
 
 signal died()
 signal hurt()
@@ -34,9 +35,16 @@ func play_turn(all: Array, fight):
 
 func start_phase(all: Array):
 	var i := 0
-	for action in (hearts + status):
+	for action in hearts:
 		if action.activates_on_turn_start():
 			await anim_heart(i)
+			action.on_turn_start(self, all)
+		i += 1
+	
+	i = 0
+	for action in status:
+		if action.activates_on_turn_start():
+			await statusbar.anim_activate(i)
 			action.on_turn_start(self, all)
 		i += 1
 
@@ -55,9 +63,16 @@ func action_phase(all: Array, fight):
 
 func end_phase(all: Array):
 	var i := 0
-	for action in (hearts + status):
+	for action in hearts:
 		if action.activates_on_turn_end():
 			await anim_heart(i)
+			action.on_turn_end(self, all)
+		i += 1
+	
+	i = 0
+	for action in status:
+		if action.activates_on_turn_end():
+			await statusbar.anim_activate(i)
 			action.on_turn_end(self, all)
 		i += 1
 
@@ -70,6 +85,13 @@ func attack(action: Action, all: Array):
 		await anim_heart(i)
 		action.on_enter_dino(self, all)
 
+func apply_status(action: Action, all: Array):
+	status.append(action)
+	await statusbar.anim_new_status(action)
+	if action.activates_on_enter_dino():
+		await statusbar.anim_activate_recent()
+		action.on_enter_dino(self, all)
+
 func use_action(idx: int, target, all: Array):
 	var action: Action = actions[idx]
 	actions[idx] = stored_actions.pick_random()
@@ -77,10 +99,13 @@ func use_action(idx: int, target, all: Array):
 	
 	if action.is_instant():
 		action.on_instant_use(self, all)
+	elif action.is_status():
+		target = target if action.is_debuff() else self
+		await target.apply_status(action, all)
 	elif not action.is_status():
 		await target.attack(action, all)
 
-func anim_heart(i: int) -> Signal:
+func anim_heart(i: int): # -> Signal:
 	return healthbar.anim_activate(i)
 
 #func apply_on_action_used(all: Array):
