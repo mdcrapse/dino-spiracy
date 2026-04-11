@@ -6,8 +6,8 @@ const FightChoices := preload("res://fight/fight_choice.gd")
 
 ## The four possible actions for the fighter.
 ## Should never be anything other than four in size.
-var actions: Array[Action] = [Actions.digitigrade_jab, Actions.digitigrade_jab, Actions.rest, Actions.agile]
-var stored_actions: Array[Action] = [Actions.digitigrade_jab, Actions.rest, Actions.agile]
+var actions: Array[Action] = [Actions.digitigrade_jab, Actions.agile, Actions.rest, Actions.hit]
+var stored_actions: Array[Action] = [Actions.digitigrade_jab, Actions.rest, Actions.agile, Actions.hit]
 
 var hearts: Array[Action] = [] #[Actions.digitigrade_jab, Actions.digitigrade_jab, Actions.rest, Actions.rest]
 var status: Array[Action] = []
@@ -16,7 +16,7 @@ var healthbar
 var statusbar
 
 signal died()
-signal hurt()
+signal hurt(action: Action)
 signal actions_modified(dino)
 
 func _ready():
@@ -77,7 +77,7 @@ func end_phase(all: Array):
 		i += 1
 
 func attack(action: Action, all: Array):
-	hurt.emit()
+	hurt.emit(action)
 	hearts.append(action)
 	var i := hearts.size()-1
 	await healthbar.anim_attack(i, action)

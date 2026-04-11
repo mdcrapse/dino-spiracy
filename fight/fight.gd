@@ -78,10 +78,12 @@ func await_character_choice(character: Fighter) -> Signal:
 func get_enemy_attack():
 	enemy_chose.emit({idx = 0, action = enemy.actions[0]})
 
-func _on_ron_hurt():
+func _on_ron_hurt(action: Action):
+	fight_log.log_msg("Ron was attacked with " + action.name)
 	ron_panel.anim_hurt()
 
-func _on_syd_hurt():
+func _on_syd_hurt(action: Action):
+	fight_log.log_msg("Syd was attacked with " + action.name)
 	syd_panel.anim_hurt()
 
 func update_choices(dino: Fighter, choices):
@@ -96,7 +98,8 @@ func _on_ron_actions_modified(dino):
 func _on_syd_actions_modified(dino):
 	update_choices(dino, syd_choices)
 
-func _on_enemy_hurt():
+func _on_enemy_hurt(action: Action):
+	fight_log.log_msg("Enemy was attacked with " + action.name)
 	enemy_hurt_anim = 1.0
 
 func _on_enemy_actions_modified(dino):

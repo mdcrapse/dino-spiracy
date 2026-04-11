@@ -9,14 +9,14 @@ class Rest extends Action:
 		name = "Rest"
 		type = ActionType.SPECIAL
 		desc = "Replaces action with a new action."
-		texture = preload("res://character/fisherman_normal.png")
+		texture = preload("res://action/heart_reaction.svg")
 
 class Agile extends Action:
 	func _init():
 		name = "Agile"
 		type = ActionType.BUFF
 		desc = "You may play two actions."
-		texture = preload("res://action/agile.png")
+		texture = preload("res://icon.svg")
 	
 	func on_turn_start(dino, all: Array):
 		print("STATUS on turn start!")
@@ -26,6 +26,13 @@ class Agile extends Action:
 	
 	func on_enter_dino(dino, all: Array):
 		print("STATUS entered dino!")
+
+class Hit extends Action:
+	func _init():
+		name = "Hit"
+		type = ActionType.BASIC
+		desc = "Deals one heart of damage."
+		texture = preload("res://action/agile.png")
 
 class DigitigradeJab extends Action:
 	func _init():
@@ -37,11 +44,11 @@ class DigitigradeJab extends Action:
 	func on_turn_start(dino, all: Array):
 		print("on turn start!")
 	
-	func on_turn_end(dino, all: Array):
-		print("on turn end!")
-	
-	func on_enter_dino(dino, all: Array):
-		print("entered dino!")
+	#func on_turn_end(dino, all: Array):
+		#print("on turn end!")
+	#
+	#func on_enter_dino(dino, all: Array):
+		#print("entered dino!")
 	
 	#func reacts_on_action_used(dino: Fighter, all: Array, action: Action) -> bool:
 		#return action is not Rest
@@ -52,6 +59,7 @@ class DigitigradeJab extends Action:
 static var digitigrade_jab := DigitigradeJab.new()
 static var rest := Rest.new()
 static var agile := Agile.new()
+static var hit := Hit.new()
 
 # ## Dictionary of all actions in the game.
 #static var cards: Dictionary[String, Action] = {

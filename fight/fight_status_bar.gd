@@ -1,4 +1,4 @@
-extends PanelContainer
+extends MarginContainer
 
 const Heart := preload("res://fight/fight_heart.gd")
 const HeartScene := preload("res://fight/fight_heart.tscn")
